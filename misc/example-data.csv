@@ -1,0 +1,97 @@
+ID,City,Region,Month,Quarter,Year,Sales
+001,Atlanta,Southeast,January,Q1,2022,56000
+002,Boston,Northeast,January,Q1,2022,32000
+003,Chicago,Midwest,January,Q1,2022,44000
+004,Dallas,South,January,Q1,2022,57000
+005,Houston,South,January,Q1,2022,53000
+006,Los Angeles,West,January,Q1,2022,71000
+007,Milwaukee,Midwest,January,Q1,2022,33000
+008,New York,Northeast,January,Q1,2022,66000
+009,Atlanta,Southeast,February,Q1,2022,48000
+010,Boston,Northeast,February,Q1,2022,36000
+011,Chicago,Midwest,February,Q1,2022,40000
+012,Dallas,South,February,Q1,2022,55000
+013,Houston,South,February,Q1,2022,47000
+014,Los Angeles,West,February,Q1,2022,65000
+015,Milwaukee,Midwest,February,Q1,2022,37000
+016,New York,Northeast,February,Q1,2022,63000
+017,Atlanta,Southeast,March,Q1,2022,52000
+018,Boston,Northeast,March,Q1,2022,41000
+019,Chicago,Midwest,March,Q1,2022,47000
+020,Dallas,South,March,Q1,2022,50000
+021,Houston,South,March,Q1,2022,55000
+022,Los Angeles,West,March,Q1,2022,62000
+023,Milwaukee,Midwest,March,Q1,2022,31000
+024,New York,Northeast,March,Q1,2022,78000
+025,Atlanta,Southeast,April,Q2,2022,61000
+026,Boston,Northeast,April,Q2,2022,44000
+027,Chicago,Midwest,April,Q2,2022,42000
+028,Dallas,South,April,Q2,2022,55000
+029,Houston,South,April,Q2,2022,53000
+030,Los Angeles,West,April,Q2,2022,65000
+031,Milwaukee,Midwest,April,Q2,2022,33000
+032,New York,Northeast,April,Q2,2022,72000
+033,Atlanta,Southeast,May,Q2,2022,58000
+034,Boston,Northeast,May,Q2,2022,42000
+035,Chicago,Midwest,May,Q2,2022,43000
+036,Dallas,South,May,Q2,2022,46000
+037,Houston,South,May,Q2,2022,56000
+038,Los Angeles,West,May,Q2,2022,65000
+039,Milwaukee,Midwest,May,Q2,2022,30000
+040,New York,Northeast,May,Q2,2022,64000
+041,Atlanta,Southeast,June,Q2,2022,57000
+042,Boston,Northeast,June,Q2,2022,45000
+043,Chicago,Midwest,June,Q2,2022,45000
+044,Dallas,South,June,Q2,2022,57000
+045,Houston,South,June,Q2,2022,59000
+046,Los Angeles,West,June,Q2,2022,70000
+047,Milwaukee,Midwest,June,Q2,2022,36000
+048,New York,Northeast,June,Q2,2022,67000
+049,Atlanta,Southeast,July,Q3,2022,56000
+050,Boston,Northeast,July,Q3,2022,47000
+051,Chicago,Midwest,July,Q3,2022,49000
+052,Dallas,South,July,Q3,2022,56000
+053,Houston,South,July,Q3,2022,58000
+054,Los Angeles,West,July,Q3,2022,65000
+055,Milwaukee,Midwest,July,Q3,2022,28000
+056,New York,Northeast,July,Q3,2022,65000
+057,Atlanta,Southeast,August,Q3,2022,48000
+058,Boston,Northeast,August,Q3,2022,38000
+059,Chicago,Midwest,August,Q3,2022,46000
+060,Dallas,South,August,Q3,2022,58000
+061,Houston,South,August,Q3,2022,47000
+062,Los Angeles,West,August,Q3,2022,61000
+063,Milwaukee,Midwest,August,Q3,2022,35000
+064,New York,Northeast,August,Q3,2022,63000
+065,Atlanta,Southeast,September,Q3,2022,48000
+066,Boston,Northeast,September,Q3,2022,44000
+067,Chicago,Midwest,September,Q3,2022,42000
+068,Dallas,South,September,Q3,2022,46000
+069,Houston,South,September,Q3,2022,49000
+070,Los Angeles,West,September,Q3,2022,65000
+071,Milwaukee,Midwest,September,Q3,2022,24000
+072,New York,Northeast,September,Q3,2022,66000
+073,Atlanta,Southeast,October,Q4,2022,51000
+074,Boston,Northeast,October,Q4,2022,43000
+075,Chicago,Midwest,October,Q4,2022,47000
+076,Dallas,South,October,Q4,2022,52000
+077,Houston,South,October,Q4,2022,48000
+078,Los Angeles,West,October,Q4,2022,58000
+079,Milwaukee,Midwest,October,Q4,2022,27000
+080,New York,Northeast,October,Q4,2022,65000
+081,Atlanta,Southeast,November,Q4,2022,49000
+082,Boston,Northeast,November,Q4,2022,37000
+083,Chicago,Midwest,November,Q4,2022,44000
+084,Dallas,South,November,Q4,2022,46000
+085,Houston,South,November,Q4,2022,45000
+086,Los Angeles,West,November,Q4,2022,59000
+087,Milwaukee,Midwest,November,Q4,2022,34000
+088,New York,Northeast,November,Q4,2022,66000
+089,Atlanta,Southeast,December,Q4,2022,57000
+090,Boston,Northeast,December,Q4,2022,44000
+091,Chicago,Midwest,December,Q4,2022,51000
+092,Dallas,South,December,Q4,2022,58000
+093,Houston,South,December,Q4,2022,53000
+094,Los Angeles,West,December,Q4,2022,77000
+095,Milwaukee,Midwest,December,Q4,2022,32000
+096,New York,Northeast,December,Q4,2022,51000

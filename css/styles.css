@@ -1,0 +1,334 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding-top: 20px; 
+}
+
+/* STYLES FOR WEBSITE HEADER */
+
+header h1 {
+    color: steelblue;
+    font-size: 36px;
+    text-align: left;
+    margin: 10px 0;
+}
+
+/* STYLES FOR NAVIGATION BAR */
+
+nav {
+    background-color: black;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 20px;
+    background-color: black;
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    background-color: steelblue;
+}
+
+nav ul li.active a {
+    background-color: steelblue;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        flex-grow: 0;
+        margin-left: 0;
+    }
+}
+
+
+/* STYLES FOR HOME SECTION */
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.home-summary {
+    width: 63%;
+}
+
+.home-summary p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-right: 10px; 
+}
+
+.home-summary h2 {
+    font-size: 28px;
+    color: steelblue;
+    margin-bottom: 0px; 
+}
+
+.home-summary a {
+    color: steelblue;
+    font-weight: 550;
+    text-decoration: none;
+}
+.home-summary a:visited {
+    color: steelblue;
+    font-weight: 550;
+    text-decoration: none;
+}
+
+.home-image {
+    width: 35%;
+    margin-top: 15px;
+    min-width: 400px; /* minimum size the image shrinks to */
+}
+
+.home-image img {
+    width: 100%;
+    height: auto;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) { /* adjust the breakpoint as needed */
+    .home-container {
+        flex-direction: column;
+        align-items: flex-start; /* aligns items to the left */
+    }
+
+    .home-summary, .home-image {
+        width: 100%;
+    }
+
+    .home-image {
+        order: 2; /* puts the image below the summary text */
+    }
+}
+
+/* STYLES FOR PORTFOLIO PAGE (portfolio.html) */
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.portfolio-title h2 {
+    font-size: 28px;
+    color: steelblue; 
+    margin-bottom: 0px; 
+}
+
+.portfolio-container p,
+.portfolio-container ul, 
+.portfolio-container ul li {
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.portfolio-container h3 {
+    font-size: 22px;
+}
+
+.portfolio-container a {
+    color: steelblue;
+    font-weight: 400;
+    text-decoration: none;
+}
+.portfolio-container a:visited {
+    color: steelblue;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.quadrant {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sub-container {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+.image-box {
+    flex: 0 0 200px; 
+    width: 200px; 
+}
+
+.image-box img {
+    width: 80%; 
+    max-width: 180px; 
+    height: auto;
+}
+
+.list-box {
+    flex: 1; 
+}
+
+.list-box ul li {
+    padding-left: 20px; 
+    text-indent: -15px; 
+}
+
+.list-box ul {
+    padding-left: 5px; 
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .portfolio-container {
+        grid-template-columns: 1fr; /* change to single column */
+        grid-template-rows: auto auto auto auto; 
+    }
+    .image-box {
+        flex: 0 0 100%; /* image takes full width in smaller screens */
+        width: 100%;
+    }
+}
+
+
+/* STYLES FOR CONTACT TAB (contact.html) */
+
+.contact-container p { 
+    font-size: 20px;
+}
+
+.contact-container h2 {
+    font-size: 28px;
+    color: steelblue; 
+    margin-bottom: 0px;
+}
+
+.contact-item {
+    min-width: 200px;
+    text-align: center;    
+}
+
+.contact-item img {
+    width: 200px; 
+    max-width: 100%;
+    height: auto;
+}
+
+.contact-flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.contact-item p {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* RESPONSIVE DESIGN  */
+@media (max-width: 768px) {
+    .contact-flexbox {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .contact-item {
+        width: 100%; 
+    }
+}
+
+
+/* STYLES FOR GITHUB TAB (github.html) */
+
+.github-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.github-summary {
+    width: 67%;
+}
+
+.github-summary p {
+    font-size: 20px;
+    line-height: 1.5; 
+}
+
+.github-summary h2 {
+    font-size: 28px;
+    color: steelblue;
+    margin-bottom: 0px; 
+}
+
+.github-link {
+    width: 33%;
+    padding-top: 15px;
+    background-color: white /* for experimentation */
+}
+
+.github-link p {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.github-link img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; 
+    width: auto;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .github-container {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .github-summary, .github-link {
+        width: 100%; 
+    }
+
+    .github-link img {
+        width: 200px; 
+        max-width: 100%; 
+    }
+}
+
+/* STYLING FOR FOOTERS */
+
+footer {
+    text-align: left;
+    font-size: 14px
+}
