@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to filter using contains()</title>
+  <link rel="stylesheet" href="folio-styles.css"> <!-- LINK TO CSS FILE -->
+</head>
+<body>
+  <!-- TOPIC INDEX CONTAINER -->
+  <div class="index-container">
+    <h3 class="index-heading">Index</h3>
+    <ul>
+      <li><a href="#intro">(Top)</a></li>
+      <li><a href="#section1">Example data</a></li>
+      <li><a href="#section2">Applying a does-contain filter</a></li>
+      <li><a href="#section3">Applying a does-not-contain filter</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER-->
+  <div class="main-content">
+    
+    <!-- INTRO -->
+    <h1 id="intro">How to filter using contains()</h1>
+    <p>This topic shows how to use the <a href="https://docs.app.studio.arria.com/en/12080-contains.html" target="blank">contains()</a> function in filtering operations. It demonstrates how this function can enhance data filtering processes, providing methods for selecting or excluding specific datasets based on a range of criteria.</p> 
+    <p>While the examples focus on using <a href="filterTable.html" target="blank">filterTable()</a> for table data, the methods are just as effective when applied to JSON data using the <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a> function. This highlights the flexibility of the methods.</p>
+    <hr>
+
+    <!-- SECTION 1 -->
+    <h2 id="section1">Example data</h2>
+    <p>The examples below use a large dataset, not fully shown here. To understand better, download the dataset and start a new project. After uploading the data, paste the example code into a script and click <b>Preview</b> to see the results.</p>
+    <button id="download-button">DOWNLOAD DATASET</button>
+    <p>The complete dataset contains 96 rows. For reference, here are the first four:</p>
+    <table style="width:100%">
+      <tr>
+          <th></th>
+          <th>ID</th>
+          <th>City</th>
+          <th>Region</th>
+          <th>Month</th>
+          <th>Quarter</th>
+          <th>Year</th>
+          <th>Sales</th>
+      </tr>
+      <tr>
+          <td>Row 1</td>
+          <td>001</td>
+          <td>Atlanta</td>
+          <td>Southeast</td>
+          <td>January</td>
+          <td>Q1</td>
+          <td>2022</td>
+          <td>56000</td>
+      </tr>
+      <tr>
+          <td>Row 2</td>
+          <td>002</td>
+          <td>Boston</td>
+          <td>Northeast</td>
+          <td>January</td>
+          <td>Q1</td>
+          <td>2022</td>
+          <td>32000</td>
+      </tr>
+      <tr>
+          <td>Row 3</td>
+          <td>003</td>
+          <td>Chicago</td>
+          <td>Midwest</td>
+          <td>January</td>
+          <td>Q1</td>
+          <td>2022</td>
+          <td>44000</td>
+      </tr>
+      <tr>
+        <td>Row 4</td>
+        <td>004</td>
+        <td>Dallas</td>
+        <td>South</td>
+        <td>January</td>
+        <td>Q1</td>
+        <td>2022</td>
+        <td>57000</td>
+    </tr>
+  </table>
+  
+ 
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+
+    <!-- SECTION 2 -->
+    <h2 id="section2">Applying a does-contain filter</h2>
+    <p>Suppose you want to filter the table, retaining only the rows for April to June. One approach is to use the OR logical operator ( <code>||</code> ) and check the <b>Month</b> column value against three separate conditions: </p>
+    <pre>[[filterTable(WholeTable, MonthColumn, m -> m == 'Apr' || m == 'May' || m == 'Jun')]]</pre>
+    <p>However, a better method is to use the <code>contains()</code> function. Here's how it works:</p>
+    <pre>[[
+
+wantedMonths = makeList('Apr', 'May', 'Jun');
+              
+filterTable(WholeTable, MonthColumn, m -> contains(wantedMonths, m))
+                 
+]]</pre>
+    <p>The first statement defines a <code>wantedMonths</code> variable, which stores a list of desired values. A filter is then applied to the table, keeping rows when their <b>Month</b> value is contained within the <code>wantedMonths</code> list.</p>
+    <p>This method is cleaner and more beneficial for several reasons:</p>
+    <ul>
+      <li>It reduces the complexity of the filter condition, making the code easier to read and maintain.</li>
+      <li>It's easier to update or expand the list of wanted months without altering the core filter logic.</li>
+    </ul>
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+
+    <!-- SECTION 3 -->
+    <h2 id="section3">Applying a does-not-contain filter</h2>
+    <p>To exclude data for specific months, such as April to July, and to retain data for the remaining months, you can employ a does-not-contain filter by prefixing a NOT operator ( <code>!</code> ) to <code>contains()</code>.</p>
+    <pre>[[
+  
+excludedMonths = makeList('Apr', 'May', 'Jun');
+              
+filterTable(WholeTable, MonthColumn, m -> !contains(excludedMonths, m))
+                
+]]</pre>
+    <p>The first statement defines an <code>excludedMonths</code> variable, which stores a list of values to exclude. A filter is then applied to the table, keeping rows when their <b>Month</b> value is not contained within the <code>excludedMonths</code> list.</p>
+    <p>This method is more efficient as it targets a smaller group of months for exclusion (three) instead of specifying a larger group for inclusion (nine). Other benefits include simplified code maintenance and enhanced readability.</p>
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+  <footer>
+  <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
+  </footer>
+  </div>
+  <!-- END OF MAIN CONTENT CONTAINER -->
+  <script src="../script.js"></script>
+</body>
+</html>

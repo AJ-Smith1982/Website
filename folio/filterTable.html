@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filterTable()</title>
+  <link rel="stylesheet" href="folio-styles.css"> <!-- LINK TO CSS FILE -->
+</head>
+<body>
+  <!-- TOPIC INDEX CONTAINER -->
+  <div class="index-container">
+    <h3 class="index-heading">Index</h3>
+    <ul>
+      <li><a href="#section1">(Top)</a></li>
+      <li><a href="#section2">Parameters</a></li>
+      <li><a href="#section3">Syntax</a></li>
+      <li><a href="#section4">Examples</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="main-content">
+    
+    <!-- SECTION 1 -->
+    <h1 id="section1">filterTable()</h1>
+    <p>This function filters a table region, using the criteria you specify.</p>
+    <p>The function takes three arguments: the first defines the table region to filter, the second specifies which columns to use, and the third employs a Boolean function to define the filter conditions.</p>
+    <p>The output is a table region containing only rows for which the Boolean function returns true.</p>
+    <hr>
+
+    <!-- SECTION 2 -->
+    <h2 id="section2">Parameters</h2>
+    <table style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Required</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>inputTable</code></td>
+          <td><em>table region</em></td>
+          <td>The table region to filter.</td>
+          <td>required</td>
+          <td>none</td>
+        </tr></td>
+        </tr>
+        <tr>
+          <td><code>filterCol</code></td>
+          <td><em>column, list</em></td>
+          <td>
+            The table columns to use.<br>
+          </td>
+          <td>required</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><code>filterFunc</code></td>
+          <td><em>function</em></td>
+          <td>The function defining the filter conditions.</td>
+          <td>required</td>
+          <td>none</td>
+        </tr>
+        <tr>
+    </tbody>
+    </table>
+    <ul>
+      <li><code>filterCol</code> requires a list for multiple columns.</li>
+      <li><code>filterFunc</code> is typically a <a href="lambda.html" target="blank">lambda function</a>.</li>
+      <li><code>filterFunc</code> must return a Boolean true or false.</li> 
+    </ul>
+    <hr>
+
+    <!-- SECTION 3 -->
+    <h2 id="section3">Syntax</h2>
+    <pre style="margin-bottom: 10px">[[filterTable(inputTable, filterCol, filterFunc)]]</pre>
+    <hr>
+
+    <!-- SECTION 4 -->
+    <h2 id="section4">Examples</h2>
+    <p>Assume a project with this table data:</p>
+    <table style="width:75%">
+      <thead>
+          <tr>
+              <th></th>
+              <th>Code</th>
+              <th>Qtr</th>
+              <th>Branch</th>
+              <th>Sales</th>
+              <th>Target</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Row 1</td>
+              <td>1001</td>
+              <td>Q1</td>
+              <td>Boston</td>
+              <td>294250</td>
+              <td>300000</td>
+          </tr>
+          <tr>
+              <td>Row 2</td>
+              <td>2001</td>
+              <td>Q1</td>
+              <td>Chicago</td>
+              <td>403605</td>
+              <td>350000</td>
+          </tr>
+          <tr>
+              <td>Row 3</td>
+              <td>3001</td>
+              <td>Q1</td>
+              <td>New York</td>
+              <td>457350</td>
+              <td>450000</td>
+          </tr>
+          <tr>
+              <td>Row 4</td>
+              <td>4001</td>
+              <td>Q1</td>
+              <td>Pittsburgh</td>
+              <td>279240</td>
+              <td>250000</td>
+          </tr>
+          <tr>
+              <td>Row 5</td>
+              <td>1002</td>
+              <td>Q2</td>
+              <td>Boston</td>
+              <td>307850</td>
+              <td>300000</td>
+          </tr>
+          <tr>
+              <td>Row 6</td>
+              <td>2002</td>
+              <td>Q2</td>
+              <td>Chicago</td>
+              <td>395180</td>
+              <td>350000</td>
+          </tr>
+          <tr>
+              <td>Row 7</td>
+              <td>3002</td>
+              <td>Q2</td>
+              <td>New York</td>
+              <td>439210</td>
+              <td>450000</td>
+          </tr>
+          <tr>
+              <td>Row 8</td>
+              <td>4002</td>
+              <td>Q2</td>
+              <td>Pittsburgh</td>
+              <td>282500</td>
+              <td>200000</td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="admonition-key">
+      <div class="admonition-key-title">KEY</div>
+      <div class="admonition-content">
+          <p>The first column (<b>Code</b>) must have unique values, so filtering by this column is not possible.</p>
+      </div>
+    </div>
+    <hr>
+
+    <!-- SECTION 4A (h3) -->
+    <h3>Single-column filters</h3>
+    <p>To retain rows with a <b>Branch</b> value equal to 'Boston':</p>
+    <pre>[[filterTable(WholeTable, BranchColumn, b -> b == 'Boston')]]</pre>
+    <p>The output table region is:</p>
+    <table style="width:75%">
+      <thead>
+          <tr>
+              <th></th>
+              <th>Code</th>
+              <th>Qtr</th>
+              <th>Branch</th>
+              <th>Sales</th>
+              <th>Target</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Row 1</td>
+              <td>1001</td>
+              <td>Q1</td>
+              <td>Boston</td>
+              <td>294250</td>
+              <td>300000</td>
+          </tr>
+          <tr>
+              <td>Row 5</td>
+              <td>1002</td>
+              <td>Q2</td>
+              <td>Boston</td>
+              <td>307850</td>
+              <td>300000</td>
+          </tr>
+      </tbody>
+    </table>
+    <p><p>To apply multiple conditions to a single column, use <code>&&</code> (AND) or <code>||</code> (OR) operators:</p>
+    <pre>[[filterTable(WholeTable, SalesColumn, s -> s > 275000 && s < 300000)]]</pre>
+    <p>The output table region is:</p>
+    <table style="width:75%">
+      <thead>
+          <tr>
+              <th></th>
+              <th>Code</th>
+              <th>Qtr</th>
+              <th>Branch</th>
+              <th>Sales</th>
+              <th>Target</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Row 1</td>
+              <td>1001</td>
+              <td>Q1</td>
+              <td>Boston</td>
+              <td>294250</td>
+              <td>300000</td>
+          </tr>
+          <tr>
+              <td>Row 4</td>
+              <td>4001</td>
+              <td>Q1</td>
+              <td>Pittsburgh</td>
+              <td>279240</td>
+              <td>250000</td>
+          </tr>
+          <tr>
+              <td>Row 8</td>
+              <td>4002</td>
+              <td>Q2</td>
+              <td>Pittsburgh</td>
+              <td>282500</td>
+              <td>200000</td>
+          </tr>
+      </tbody>
+    </table>
+    <hr>
+
+    <!-- SECTION 4B (h3) -->
+    <h3>Multiple-column filters</h3>
+    <p>List the column variables and ensure the number of columns matches the number of parameters in the Boolean function.</p>
+    <p>To retain rows with a <b>Qtr</b> value equal to 'Q2' AND a <b>Sales</b> value greater than 300,000:</p>
+    <pre>[[filterTable(WholeTable, (QtrColumn,SalesColumn), (q,s) -> q == 'Q2' && s > 300000)]]</pre>
+    <p>The output table region is:</p>
+    <table style="width:75%">
+      <thead>
+          <tr>
+              <th></th>
+              <th>Code</th>
+              <th>Qtr</th>
+              <th>Branch</th>
+              <th>Sales</th>
+              <th>Target</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Row 5</td>
+              <td>1002</td>
+              <td>Q2</td>
+              <td>Boston</td>
+              <td>307850</td>
+              <td>300000</td>
+          </tr>
+          <tr>
+              <td>Row 6</td>
+              <td>2002</td>
+              <td>Q2</td>
+              <td>Chicago</td>
+              <td>395180</td>
+              <td>350000</td>
+          </tr>
+          <tr>
+              <td>Row 7</td>
+              <td>3002</td>
+              <td>Q2</td>
+              <td>New York</td>
+              <td>439210</td>
+              <td>450000</td>
+          </tr>
+      </tbody>
+    </table>
+    <p>The Boolean function can use other ATL functions (in-built or user-defined) to define the filter conditions.</p>
+    <p>To retain rows where <b>Sales</b> exceeds 350,000 AND <b>Sales</b> exceeds <b>Target</b> by more than 15%:</p>
+    <pre>[[filterTable(WholeTable, (SalesColumn,TargetColumn), (s,t) -> s > 350000 && pctChange(s,t) > 15)]]</pre>
+    <p>The output table region is:</p>
+    <table style="width:75%">
+      <thead>
+          <tr>
+              <th></th>
+              <th>Code</th>
+              <th>Qtr</th>
+              <th>Branch</th>
+              <th>Sales</th>
+              <th>Target</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Row 2</td>
+              <td>2001</td>
+              <td>Q1</td>
+              <td>Chicago</td>
+              <td>403605</td>
+              <td>350000</td>
+          </tr>
+          <tr>
+            <td>Row 8</td>
+            <td>4002</td>
+            <td>Q2</td>
+            <td>Pittsburgh</td>
+            <td>282500</td>
+            <td>200000</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+
+    <!-- SECTION 4C (h3) -->
+    <h3>Working with the output</h3>
+    <p>The output, when unaltered, is printed to resemble an HTML table on a webpage, similar to the tables on this page. However, the common practice is to assign the output to a variable and perform further analysis. For example:</p>
+    <pre style="padding-right: 30px;">[[
+    
+Q2Data = filterTable(WholeTable, QtrColumn, q -> q == 'Q2')
+
+sumQ2Sales = totalVal(columnsInRegion(Q2Data, SalesColumn))
+
+sumQ2Target = totalVal(columnsInRegion(Q2Data, TargetColumn))
+
+perfValue = pctChange(sumQ2Sales, sumQ2Target)
+
+position = perfValue >= 0 ? 'above' : 'below'
+
+joinStrings('Q2 sales are ',  abs(perfValue), '% ', position, ' target.') 
+            
+]]</pre>
+    <p>The printed output is:</p>
+    <blockquote class="italic">Q2 sales are 7.89% above target.  
+    </blockquote>
+    <hr>
+  <footer>
+      <p style="line-height: 1; text-align: center; font-size: 14px;">Copyright © <span id="currentYear"></span>, A.J. Smith</p>
+  </footer>  
+  </div>
+  <!-- END OF MAIN CONTENT CONTAINER -->
+  <script src="../script.js"></script>
+</body>
+</html>

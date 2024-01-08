@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>groupArrays()</title>
+  <link rel="stylesheet" href="folio-styles.css"> <!-- LINK TO CSS FILE -->
+</head>
+<body>
+  <!-- TOPIC INDEX CONTAINER -->
+  <div class="index-container">
+    <h3 class="index-heading">Index</h3>
+    <ul>
+      <li><a href="#section1">(Top)</a></li>
+      <li><a href="#section2">Parameters</a></li>
+      <li><a href="#section3">Syntax</a></li>
+      <li><a href="#section4">Examples</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="main-content">
+    
+    <!-- SECTION 1 -->
+    <h1 id="section1">groupArrays()</h1>
+    <p>This function groups arrays based on matching values at one or more index positions. The function not only groups data but also performs aggregation within each group, following the criteria you specify.</p>
+    <p>The return value is a list of tuples, with each tuple containing both the grouping values and the corresponding aggregated value for a distinct group. The tuples are sorted in descending order based on the aggregated value.</p>
+    <p>For example, the output for a Country-by-Sales analysis might be:</p>  
+    <blockquote class="listObjects">( ('France', 74392.45), ('Canada', 47792.22), ('Japan', 38256.62) )</blockquote>
+    <p>This function is useful when your dataset is structured as a two-dimensional array. The outcome demonstrates the effectiveness of the function in presenting organised and aggregated data, providing valuable insights.</p>
+    <hr>
+
+    <!-- SECTION 2 -->
+    <h2 id="section2">Parameters</h2>
+    <table style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Required</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>outerArray</code></td>
+          <td><em>array</em></td>
+          <td>The dataset to group. Must be an array of arrays.</td>
+          <td>required</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><code>groupIdx</code></td>
+          <td><em>number, list</em></td>
+          <td>The index position(s) for grouping the inner arrays.</td>
+          <td>required</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><code>aggregateIdx</code></td>
+          <td><em>number</em></td>
+          <td>The index position for aggregation.</td>
+          <td>required</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><code>aggregateFunc</code></td>
+          <td><em>function</em></td>
+          <td>The aggregation function: <code>sum()</code>, <code>mean()</code>, or <code>count()</code>.</td>
+          <td>optional</td>
+          <td><code>sum()</code></td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>All arrays within <code>dataArray</code> must be of the same length, with values ordered consistently.</li>
+      <li><code>groupIdx</code> requires an integer. This index position should reference dimension data (e.g. Country).</li>
+      <li><code>aggregationIdx</code> requires an integer. This index position should reference measure data (e.g. Sales).</li>
+      <li>You can group by multiple dimensions, but aggregation is limited to one measure.</li>
+    </ul>
+    <hr>
+
+    <!-- SECTION 3 -->
+    <h2 id="section3">Syntax</h2>
+    <pre style="margin-bottom: 10px">[[groupArrays(outerArray, groupIdx, aggregateIdx, aggregateFunc)]]</pre>
+    <hr>
+
+    <!-- SECTION 4 -->
+    <h2 id="section4">Examples</h2>
+    <p>Assume a project with this JSON data:</p>
+    <pre style="padding-right: 30px;">{
+  "dataArray": [  
+      ["A001", "Atlanta", "Food", 500000, 30000],
+      ["A002", "Atlanta", "Food", 470000, 30000],
+      ["C001", "Chicago", "Drug", 460000, 26000],
+      ["C002", "Chicago", "Food", 550000, 33000],
+      ["A003", "Atlanta", "Food", 680000, 48000],
+      ["H001", "Houston", "Drug", 660000, 48000],
+      ["A004", "Atlanta", "Drug", 240000, 17000],
+      ["C003", "Chicago", "Drug", 400000, 25000],
+      ["H002", "Houston", "Food", 420000, 26000],
+      ["C004", "Chicago", "Food", 610000, 37000],
+      ["A005", "Atlanta", "Drug", 200000, 13000],
+      ["H003", "Houston", "Drug", 700000, 49000]
+  ]
+}</pre>
+    <p>The outer array (<code>dataArray</code>) comprises 12 subarrays, each with five values. These values are accessible through zero-based indexing, where <b>ID</b> = Index 0, <b>City</b> = Index 1, <b>Type</b> = Index 2, <b>Sales</b> = Index 3, and <b>Profit</b> = Index 4.</p>
+    <hr> 
+    </section>
+    
+    <!--SECTION 4A (h3)-->
+    <h3>Example 1 — Single grouping index</h3>
+    <p>To identify the top <b>City</b> for total <b>Profit</b>, the function call is:</p>
+    <pre>[[groupArrays(WholeJSON.dataArray, 1, 4, sum())]]</pre>
+    <p>The return value is this list of tuples:</p> 
+    <blockquote class="listObjects">( ("Atlanta", 138000), ("Houston", 123000), ("Chicago", 121000) )</blockquote>
+    <p>Here's how you might convert the result to narrative text:</p>
+    <pre style="padding-right: 30px;">[[
+      
+results = groupArrays(WholeJSON.dataArray, 1, 4, sum())
+  
+bestGroup = top(results, 1)
+  
+topCity = bestGroup[0][0]
+      
+topProfit = abbreviateNumber(currency(bestGroup[0][1]))
+  
+joinStrings('The top city is ', topCity, ', with a total Profit value of ', topProfit, '.')
+  
+]]</pre>
+    <p>The printed output is:</p>
+    <blockquote class="italic">The top city is Atlanta, with a total Profit value of $138K.</blockquote>
+    <hr>
+  
+    <!-- SECTION 4B (h3)-->
+    <h3>Example 2 — Multiple grouping indexes</h3>
+    <p>To identify the best <b>City</b> + <b>Type</b> combination for average <b>Sales</b>, you must specify two grouping indexes.</p>
+    <pre>[[groupArrays(WholeJSON.dataArray, (1, 2), 3, mean())]]</pre>
+    <p>The return value is this list of tuples:</p> 
+    <blockquote class="listObjects">( ("Houston", "Drug", 680000), ("Chicago", "Food", 580000), ("Atlanta", "Food", 550000), ("Chicago", "Drug", 430000), ("Houston", "Food", 420000), ("Atlanta", "Drug", 220000) )</blockquote>
+    <p>Each tuple contains <b>City</b> and <b>Type</b> values, along with a mean-aggregated <b>Sales</b> value for the group.</p>
+    <p>Here's how you might convert the result to narrative text:</p>
+    <pre>[[
+      
+results = groupArrays(WholeJSON.dataArray, (1, 2), 3, mean())
+        
+topResult = top(results, 1)
+        
+topCityTypeCombo = joinStrings(topResult[0][1], ' stores in ', topResult[0][0])
+        
+topAvgSales = abbreviateNumber(currency(topResult[0][2]))
+
+joinStrings(topCityTypeCombo, ' had the best average sales (', topAvgSales, ').')
+        
+]]</pre>
+    <p>The printed output is:</p>
+    <blockquote class="italic">Drug stores in Houston had the best average sales ($680K).</blockquote>
+    <hr>
+  <footer>
+  <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
+  </footer>
+  </div>
+  <!-- END OF MAIN CONTENT CONTAINER -->
+  <script src="../script.js"></script>
+</body>
+</html>

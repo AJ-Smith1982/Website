@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>outliersZScore()</title>
+  <link rel="stylesheet" href="folio-styles.css"> <!-- LINK TO CSS FILE -->
+</head>
+<body>
+  <!-- TOPIC INDEX CONTAINER -->
+  <div class="index-container">
+    <h3 class="index-heading">Index</h3>
+    <ul>
+      <li><a href="#section1">(Top)</a></li>
+      <li><a href="#section2">Parameters</a></li>
+      <li><a href="#section3">Syntax</a></li>
+      <li><a href="#section4">Output</a></li>
+      <li><a href="#section5">Z-score calculation</a></li>
+      <li><a href="#section6">Examples</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="main-content">
+    
+    <!-- SECTION 1 -->
+    <h1 id="section1">outliersZScore()</h1>
+    <p>This function detects statistical outliers using the Z-score method.</p>
+    <p>This method analyses a series of numbers by calculating a Z-score for each data point, measuring how many standard deviations each point is from the data's mean. The equation is explained in <a href="#section4a">Z-score calculation</a>.</p>
+    <p>It then evaluates each Z-score against a user-defined threshold. Data points with absolute Z-scores exceeding the threshold are flagged as outliers. Outliers can be high or low — that is, above or below the mean.</p>
+    <p>The return value is a list of ATL objects — see <a href="#section4">Output</a> for details.</p>
+    <hr>
+    
+    <!-- SECTION 2 -->
+    <h2 id="section2">Parameters</h2>
+    <table style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Required</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>dataCol</code></td>
+          <td><em>column</em></td>
+          <td>A column of values for outlier detection.</td>
+          <td>required</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><code>labelCol</code></td>
+          <td><em>column</em></td>
+          <td>A column of values for labeling the data points.</td>
+          <td>required</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><code>zThreshold</code></td>
+          <td><em>number</em></td>
+          <td>The Z-score threshold for identifying outliers.</td>
+          <td>optional</td>
+          <td>3</td>
+        </tr>
+        <tr>
+        <tr>
+          <td><code>isSample?</code></td>
+          <td><em>boolean</em></td>
+          <td>
+            Whether the data is a sample (true) or the total population (false).<br>
+            </td>
+            <td>optional</td>
+            <td>false</td>
+        </tr>
+        <tr>
+          <td><code>filtOptions</code></td>
+          <td><em>string</em></td>
+          <td>Options: 'returnAll', 'highOnly', and 'lowOnly'.</td>
+          <td>optional</td>
+          <td>'returnAll'</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>The function removes nulls from <code>dataCol</code> before calculating.</li>
+      <li>Increasing <code>zThreshold</code> makes the outlier detection less sensitive. </li>
+      <li>The <code>isSample?</code> value affects the <a href="#section4a">Z-score calculation</a>. </li>
+    </ul>
+    <hr>
+    
+    <!-- SECTION 3 -->
+    <h2 id="section3">Syntax</h2>
+    <pre style="margin-bottom: 10px">[[outliersZScore(dataCol, labelCol, zThreshold, isSample?, filtOptions)]]</pre>
+    <hr>
+    
+    <!-- SECTION 4 -->
+    <h2 id="section4">Output</h2>
+    <p>The output is a list of ATL objects, with one object per outlier.</p>
+    <p>Each object contains six key&#8211;value pairs:
+    <table>
+        <tr>
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td><code>label</code></td>
+            <td>The identifying label for the detected outlier.</td>
+        </tr>
+        <tr>
+            <td><code>value</code></td>
+            <td>The exact value of the detected outlier.</td>
+        </tr>
+        <tr>
+            <td style="padding-right: 30px;"><code>type</code></td>
+            <td style="padding-right: 30px;">Indicates if the outlier is 'high' (above mean) or 'low' (below mean).</td>
+        </tr>
+        <tr>
+          <td style="padding-right: 30px;"><code>zScore</code></td>
+          <td style="padding-right: 30px;">The Z-score for the detected outlier — see <a href="#section4a">Z-score calculation</a>.</td>
+        </tr>
+        <tr>
+          <td><code>zThres</code></td>
+          <td>The Z-score threshold used for detecting outliers.</td>
+        </tr>
+        <tr>
+          <td><code>mean</code></td>
+          <td>The mean (average) value for the analysed data.</td>
+        </tr>
+    </table>
+    <p>When no outliers are detected, the function returns an empty list.</p>
+    <hr>
+
+    <!-- SECTION 5 -->
+    <h2 id="section5">Z-score calculation</h2>
+    <p>For a given data point, let:
+    <ul>
+      <li><em>Z</em> be the Z-score,</li>
+      <li><em>x</em> be the data point,</li>
+      <li><em>&#956</em> be the mean of the data,</li>
+      <li><em>s</em> be the standard deviation (sample) of the data,</li>
+      <li><em>&#963</em> be the standard deviation (population) of the data.</li>
+    </ul>
+    <p>When <code>isSample?</code> = true, the calculation is:
+    <blockquote><em>Z = (x - &#956) / s</em></blockquote>
+    <p>When <code>isSample?</code> = false (the default), the calculation is: </p>
+    <blockquote><em>Z = (x - &#956) / &#963</em></blockquote>
+    <hr>
+
+    <!-- SECTION 6 -->
+    <h2 id="section6">Examples</h2>
+    <p>Assume a project with this table data:</p>
+    <table style="width: 50%;">
+      <tr>
+        <th></th>
+        <th>Month</th>
+        <th>Orders</th>
+        <th>SalesRev</th>
+      </tr>
+      <tr>
+        <td>Row 1</td>
+        <td>Jan</td>
+        <td>275</td>
+        <td>28500</td>
+      </tr>
+      <tr>
+        <td>Row 2</td>
+        <td>Feb</td>
+        <td>30</td>
+        <td>31200</td>
+      </tr>
+      <tr>
+        <td>Row 3</td>
+        <td>Mar</td>
+        <td>310</td>
+        <td>33100</td>
+      </tr>
+      <tr>
+        <td>Row 4</td>
+        <td>Apr</td>
+        <td>290</td>
+        <td>27700</td>
+      </tr>
+      <tr>
+        <td>Row 5</td>
+        <td>May</td>
+        <td>285</td>
+        <td>28300</td>
+      </tr>
+      <tr>
+        <td>Row 6</td>
+        <td>Jun</td>
+        <td>305</td>
+        <td>27700</td>
+      </tr>
+      <tr>
+        <td>Row 7</td>
+        <td>Jul</td>
+        <td>292</td>
+        <td>31300</td>
+      </tr>
+      <tr>
+        <td>Row 8</td>
+        <td>Aug</td>
+        <td>307</td>
+        <td>30400</td>
+      </tr>
+      <tr>
+        <td>Row 9</td>
+        <td>Sep</td>
+        <td>290</td>
+        <td>27800</td>
+      </tr>
+      <tr>
+        <td>Row 10</td>
+        <td>Oct</td>
+        <td>612</td>
+        <td>62700</td>
+      </tr>
+      <tr>
+        <td>Row 11</td>
+        <td>Nov</td>
+        <td>310</td>
+        <td>29600</td>
+      </tr>
+      <tr>
+        <td>Row 12</td>
+        <td>Dec</td>
+        <td>314</td>
+        <td>30200</td>
+      </tr>
+    </table>
+    <p>Let's look for outliers in <b>Orders</b>, using <b>Month</b> values to label data points. Also, let's apply a Z-score threshold of 2 and specify that we're working with population data (not sample). The function call is:</p>
+    <pre>[[outliersZScore(OrdersColumn, MonthColumn, 2, false)]]</pre>
+    <p>The output is a list containing these objects:</p>
+    <blockquote class="listObjects">( label = 'Feb', value = 30, type = 'low', zScore = -2.27, zThres = 2, mean = 301.67 )</blockquote>
+    <blockquote class="listObjects">( label = 'Oct', value = 612, type = 'high', zScore = 2.59, zThres = 2, mean = 301.67 )</blockquote>
+    <p>The objects contain important outlier information, including the value, label, type (high or low), and Z-score. It's worth noting that the threshold and dataset mean values are also included, but these are the same for each outlier.</p>
+    <p>The fifth parameter allows filtering by type.</p>
+    <pre>[[outliersZScore(OrdersColumn, MonthColumn, 2, false, 'lowOnly')]]</pre>
+    <p>Now, just one outlier is reported:</p>
+    <blockquote class="listObjects">( label = 'Feb', value = 30, type = 'low', zScore = -2.27, zThres = 2, mean = 301.67 )</blockquote>
+    <hr>
+    <h3>Working with the output</h3>
+    <p>The output is always a list, even when there is one outlier or none at all.</p>
+    <p>To generate narrative text, you would typically run the list through a separate narrative script. For example:
+    <pre style="padding-right: 30px;">#narrative describeOrderOutliers(results)
+    
+Analysing monthly order counts, we found [[countable(len(results),'', 'outlier')]]: [[map(results, x -> joinStrings('a ', x.type, ' outlier of ', countable(x.value,'', 'order'), ' in ', x.label))]]. The analysis used the Z-score method to find values more than [[countable(results[0].zThres, 'standard', 'deviation')]] from the mean ([[results[0].mean]]).</pre>
+    <p>This script takes a list of objects (<code>results</code>) and outputs a narrative summary.</p>
+    <p>To pass results into the script, call <code>describeOrderOutliers</code> in another script (e.g. <em>Main</em>).
+    <pre style="padding-right: 30px;">[[
+    
+results = outliersZScore(OrdersColumn, MonthColumn, 2, false)
+      
+noOutliersText = 'There are no outliers for monthly orders.'
+
+len(results) == 0 ? noOutliersText : describeOrderOutliers(results)
+      
+]]</pre>
+    <p>Still using the example data, the printed output is:</p>
+    <blockquote class="italic">Analysing monthly order counts, we found two outliers: a low outlier of 30 orders in Feb and a high outlier of 612 orders in Oct. The analysis used the Z-score method to find values more than two standard deviations from the mean (301.67). 
+    </blockquote>
+    <hr>  
+  <footer>
+  <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
+  </footer>
+  </div>
+  <!-- END OF MAIN CONTENT CONTAINER -->
+  <script src="../script.js"></script>
+</body>
+</html>
+

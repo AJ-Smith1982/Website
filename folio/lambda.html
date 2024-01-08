@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to write lambda functions</title>
+  <link rel="stylesheet" href="folio-styles.css"> <!-- LINK TO CSS FILE -->
+</head>
+<body>
+  <!-- TOPIC INDEX CONTAINER -->
+  <div class="index-container">
+    <h3 class="index-heading">Index</h3>
+    <ul>
+      <li><a href="#intro">(Top)</a></li>
+      <li><a href="#section1">Syntax for lambdas</a></li>
+      <li><a href="#section2">Named functions and lambdas</a></li>
+      <li><a href="#section3">Mapping with lambdas</a></li>
+      <li><a href="#section4">Filtering with lambdas</a></li>
+      <li><a href="#section5">Sorting with lambdas</a></li>
+      <li><a href="#section6">Conditionals and lambdas</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="main-content">
+    
+    <!-- INTRO -->
+    <h1 id="intro">How to write lambda functions</h1>
+    <p>Lambda functions are created ad hoc, are nameless, and require no formal declaration.</p>
+    <p>In Articulate Text Language (ATL), functions like <a href=" https://docs.app.studio.arria.com/en/12120-map.html" target="blank">map()</a>,  <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a>, and <a href="https://docs.app.studio.arria.com/en/12125-sort.html" target="blank">sort()</a> can use lambdas as arguments. These typically process lists or similar structures, applying lambdas to either retrieve or transform data. For example:</p>
+    <table style="width: 100%;">
+      <tr>
+          <th>Example Code</th>
+          <th>Input List</th>
+          <th>Output List</th>
+          <th>Printed Result</th>
+      </tr>
+      <tr>
+          <td>
+              <pre class="full-width-pre">[[
+
+myList = makeList(10, 20, 30)
+  
+map(myList, x -&gt; x + 1)
+
+]]</pre>
+          </td>
+          <td>(10, 20, 30)</td>
+          <td>(11, 21, 31)</td>
+          <td>11, 21 and 31</td>
+      </tr>
+  </table>
+    <p>Here, the <code>map()</code> function iterates through a numeric list (<code>myList</code>), applying a lambda (<code>x -> x + 1</code>) to each value. The effect is to increase each number by 1. The transformed values are returned in a new list.</p>
+    <hr>
+
+    <!-- SECTION 1 -->
+    <h2 id="section1">Syntax for lambdas</h2>
+    <p>The basic syntax for lambda functions is:</p>
+    <pre style="margin-bottom: 20px;">parameter -> functionBody</pre>
+    <table>
+        <tr>
+            <th style="padding-right: 30px;">Element</th>
+            <th style="padding-right: 30px;">Description</th>
+        </tr>
+        <tr>
+            <td style="padding-right: 30px;"><code>parameter</code></td>
+            <td style="padding-right: 30px;">The function parameter.</td>
+        </tr>
+        <tr>
+            <td style="padding-right: 30px;"><code>-></code></td>
+            <td style="padding-right: 30px;">The lambda operator.</td>
+        </tr>
+        <tr>
+            <td style="padding-right: 30px;"><code>functionBody</code></td>
+            <td style="padding-right: 30px;">What the function does.</td>
+        </tr>
+    </table>
+    <p>For multiple parameters, the syntax is:</p>
+    <pre>(parameter1, parameter2, ...) -> functionBody</pre>
+    <p>Here are some examples:</p>
+    <table>
+        <tr>
+            <th style="width:35%">Lambda function</th>
+            <th style="width:65%">Description</th>
+        </tr>
+        <tr>
+            <td><pre>n -> n * 10</pre></td>
+            <td>This function has a single parameter, represented by <code>n</code>. The function takes the value for <code>n</code> and multiplies it by 10.</td>
+        </tr>
+        <tr>
+            <td><pre>(x, y, z) -> (x + y) / z</pre></td>
+            <td>This function has three parameters — <code>x</code>, <code>y</code> and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, and then divides the result by <code>z</code>.</td>
+        </tr>
+    </table>
+    <div class="admonition-tip">
+        <div class="admonition-tip-title">TIP</div>
+        <div class="admonition-content">
+          <p>Parameter names don't need to be single characters. <code>(para1, para2) -> para1 + para2</code> performs the same task as <code>(x, y) -> x + y</code>. However, single characters help to keep your code concise.</p>
+        </div>
+    </div>
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+
+    <!-- SECTION 2 -->
+    <h2 id="section2">Named functions and lambdas</h2>
+    <p>In ATL, lambda functions can use the language's <a href="https://docs.app.studio.arria.com/en/2581-atl-functions.html" target="blank">built-in functions</a>. The first example below uses arithmetic operators, while the second employs the built-in math functions <a href="https://docs.app.studio.arria.com/en/12077-sum.html" target="blank">sum()</a> and <a href="https://docs.app.studio.arria.com/en/12066-div.html" target="blank">div()</a>.</p>
+    <table>
+        <tr>
+            <th style="width:35%">Lambda Function</th>
+            <th style="width:65%">Description</th>
+        </tr>
+        <tr>
+            <td><pre>(x, y, z) -> (x + y) / z</pre></td>
+            <td>This function has three parameters — <code>x</code>, <code>y</code> and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, and then divides the result by <code>z</code>.</td>
+        </tr>
+        <tr>
+            <td><pre>(x, y, z) -> div(sum(x, y), z)</pre></td>
+            <td>This function has three parameters — <code>x</code>, <code>y</code> and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, and then divides the result by <code>z</code>.</td>
+        </tr>
+    </table>
+    <p>In a lambda, you can nest built-in functions using the standard syntax, as demonstrated in the second example above. Here, the <code>sum()</code> function call — <code>sum(x, y)</code>— is used as the first argument in the <code>div()</code> function.</p>
+    <div class="admonition-tip">
+        <div class="admonition-tip-title">TIP</div>
+        <div class="admonition-content">
+          <p>You can also use declared <a href="https://docs.app.studio.arria.com/en/304615-user-defined-functions.html" target="blank">user-defined functions</a> in your lambda.</p>
+        </div>
+    </div>
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+
+    <!-- SECTION 3 -->
+    <h2 id="section3">Mapping with lambdas </h2>
+    <p>The <a href="https://docs.app.studio.arria.com/en/12120-map.html" target="blank">map()</a> function applies a lambda to each list value and returns the transformed results in a new list.
+    <table style="width: 100%;">
+        <tr>
+            <th>Example Code</th>
+            <th>Input List</th>
+            <th>Output List</th>
+        </tr>
+        <tr>
+            <td>
+                <pre class="full-width-pre">[[
+  
+myList = makeList(10, 20, 30)
+    
+map(myList, x -> joinStrings(x, "%"))
+  
+]]</pre>
+            </td>
+            <td>(10, 20, 30)</td>
+            <td>(10%, 20%, 30%)</td>
+        
+        </tr>
+        <tr>
+            <td>
+                <pre class="full-width-pre">[[
+  
+myList = makeList(10, 20, 30)
+    
+map(myList, num -> currency(num, 'GBP'))
+  
+]]</pre>
+            </td>
+            <td>(10, 20, 30)</td>
+            <td>(£10, £20, £30)</td>
+        
+        </tr>
+    </table>
+    <div class="admonition-tip">
+        <div class="admonition-tip-title">TIP</div>
+        <div class="admonition-content">
+            <p>The <code>map()</code> function can transform various data structures, including arrays of objects, into a more streamlined list of values. For detailed guidance and examples, refer to the <a href="https://docs.app.studio.arria.com/en/12120-map.html" target="blank">map()</a> topic.</p>
+        </div>
+    </div>
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+
+    <!-- SECTION 4 -->
+    <h2 id="section4">Filtering with lambdas</h2>
+    <p>The <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a> function iterates through a list, selectively retaining values that return true for the lambda's filter criteria. It then outputs those values in a new list.</p> 
+    <table style="width: 100%;">
+        <tr>
+            <th>Example Code</th>
+            <th>Input List</th>
+            <th>Output List</th>
+        </tr>
+        <tr>
+            <td>
+                <pre class="full-width-pre">[[
+  
+myList = makeList(10, 20, 30, 40, 50)
+
+filter(myList, y -> y &gt 20 && y &lt 50)
+  
+]]</pre>
+            </td>
+            <td>(10, 20, 30, 40, 50)</td>
+            <td>(30, 40)</td>
+        
+        </tr>
+        <tr>
+            <td>
+                <pre class="full-width-pre">[[
+
+myList = makeList('Linda', 'Andy' 'Louise');
+                    
+filter(myList, name -> startsWith(name, 'L'))
+  
+]]</pre>
+            </td>
+            <td>('Linda', 'Andy' 'Louise')</td>
+            <td>('Linda', 'Louise')</td>
+        
+        </tr>
+    </table>
+    <div class="admonition-tip">
+        <div class="admonition-tip-title">TIP</div>
+        <div class="admonition-content">
+            <p>You can also use <code>filter()</code> to filter JSON arrays — see <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a> for examples.</p>
+            <p>For table filtering, use <a href="../functions/filterTable.html" target="blank">filterTable()</a>, which also accepts lambdas as arguments.</p>
+        </div>
+    </div>
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+
+    <!-- SECTION 5 -->
+    <h2 id="section5">Sorting with lambdas</h2>
+   
+    <p>The <a href="https://docs.app.studio.arria.com/en/12125-sort.html" target="blank">sort()</a> function reorders the input list based on the lambda's sorting criteria, and outputs a new, sorted list.</p>
+    <table style="width: 100%;">
+        <tr>
+            <th>Example Code</th>
+            <th>Input List</th>
+            <th>Output List</th>
+        </tr>
+        <tr>
+            <td>
+                <pre class="full-width-pre">[[
+
+myList = makeList(30, 10, 40, 20, 50)
+
+sort(myList, (x,y) -> sign(x - y))
+  
+]]</pre>
+            </td>
+            <td>(30, 10, 40, 20, 50)</td>
+            <td>(10, 20, 30, 40, 50)</td>
+        
+        </tr>
+        <tr>
+            <td>
+                <pre class="full-width-pre">[[
+
+myList = makeList(30, 10, 40, 20, 50) 
+
+sort(myList, (x,y) -> sign(y - x))
+  
+]]</pre>
+            </td>
+            <td>(30, 10, 40, 20, 50)</td>
+            <td>(50, 40, 30, 20, 10)</td>
+        
+        </tr>
+    </table>
+    <div class="admonition-tip">
+        <div class="admonition-tip-title">TIP</div>
+        <div class="admonition-content">
+            <p>You can also use <code>sort()</code> on JSON arrays — see the <a href="https://docs.app.studio.arria.com/en/12125-sort.html" target="blank">sort()</a> topic for examples.</p>
+            <p>To sort tables, consider using functions like <a href="https://docs.app.studio.arria.com/en/12126-sortbycolumn.html" target="blank">sortByColumn()</a> or <a href="https://docs.app.studio.arria.com/en/12131-sortbyrow.html" target="blank">sortByRow()</a>.</p>
+        </div>
+    </div>
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+
+    <!-- SECTION 6 -->
+    <h2 id="section6">Conditionals and lambdas</h2>
+    <p>Here, the <code>map()</code> function iterates through a list, applying a <a href="https://docs.app.studio.arria.com/en/2565-conditionals.html" target="blank">conditional statement</a> to each value:</p>
+    <table style="width: 100%;">
+        <tr>
+            <th>Example Code</th>
+            <th>Input List</th>
+            <th>Output List</th>
+        </tr>
+        <tr>
+            <td>
+                <pre class="full-width-pre">[[
+
+myList = makeList(60.65, 105.42, 8.34)
+
+map(myList, x -> x &lt 10 ? round(x, 2) : round(x, 1))
+  
+]]</pre>
+            </td>
+            <td>(60.65, 105.42, 8.34)</td>
+            <td>(60.7, 105.4, 8.34)</td>
+        
+        </tr>
+    </table>
+    <p>
+        The lambda function <code>x -> x < 10 ? round(x, 2) : round(x, 1)</code> uses <a href="https://docs.app.studio.arria.com/en/2565-conditionals.html" target="blank">ternary syntax</a>  to apply a conditional statement: it checks if <code>x</code> is less than 10. If so, <code>x</code> is rounded to two decimal places; otherwise, it's rounded to one.
+   
+    <p class="top"><a href="#intro">Top</a></p>
+    <hr>
+  <footer>
+  <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
+  </footer>
+  </div>
+  <!-- END OF MAIN CONTENT CONTAINER -->
+  <script src="../script.js"></script>
+</body>
+</html>
+  
