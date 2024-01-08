@@ -1,4 +1,4 @@
-/* BEHAVIOR FOR BUTTONS IN MAIN NAVIGATION BAR*/
+/* FOR TABS IN MAIN NAVIGATION BAR*/
 
 document.addEventListener('DOMContentLoaded', function () {
     var navItems = document.querySelectorAll('.nav-item a');
@@ -36,3 +36,17 @@ document.addEventListener('DOMContentLoaded', function () {
 var currentYear = new Date().getFullYear();
 var yearPlaceholder = document.getElementById('currentYear');
 yearPlaceholder.textContent = currentYear;
+
+
+/* FOR DOWNLOADING EXAMPLE DATA */
+
+document.getElementById('download-button').addEventListener('click', function() {
+    
+    const link = document.createElement('a');
+    link.href = '../misc/example-data.csv'; 
+    link.download = 'download.csv';
+
+    document.body.appendChild(link); /* Adds link to DOM */
+    link.click(); /* Triggers download */
+    document.body.removeChild(link); /* Removes link from DOM */
+});
