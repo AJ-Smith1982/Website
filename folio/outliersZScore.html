@@ -9,7 +9,7 @@
 <body>
   <!-- TOPIC INDEX CONTAINER -->
   <div class="index-container">
-    <h3 class="index-heading">Index</h3>
+    <p class="index-heading">Contents</p>
     <ul>
       <li><a href="#section1">(Top)</a></li>
       <li><a href="#section2">Parameters</a></li>
@@ -24,15 +24,18 @@
   <div class="main-content">
     
     <!-- SECTION 1 -->
-    <h1 id="section1">outliersZScore()</h1>
+    <section id="section1">
+    <h1>outliersZScore()</h1>
     <p>This function detects statistical outliers using the Z-score method.</p>
     <p>This method analyses a series of numbers by calculating a Z-score for each data point, measuring how many standard deviations each point is from the data's mean. The equation is explained in <a href="#section5">Z-score calculation</a>.</p>
     <p>It then evaluates each Z-score against a user-defined threshold. Data points with absolute Z-scores exceeding the threshold are flagged as outliers. Outliers can be high or low — that is, above or below the mean.</p>
     <p>The return value is a list of ATL objects — see <a href="#section4">Output</a> for details.</p>
     <hr>
+    </section>
     
     <!-- SECTION 2 -->
-    <h2 id="section2">Parameters</h2>
+    <section id="section2">
+    <h2>Parameters</h2>
     <table style="width:100%">
       <thead>
         <tr>
@@ -90,14 +93,18 @@
       <li>The <code>isSample?</code> value affects the <a href="#section5">Z-score calculation</a>. </li>
     </ul>
     <hr>
+    </section>
     
     <!-- SECTION 3 -->
-    <h2 id="section3">Syntax</h2>
+    <section id="section3">
+    <h2>Syntax</h2>
     <pre style="margin-bottom: 10px">[[outliersZScore(dataCol, labelCol, zThreshold, isSample?, filtOptions)]]</pre>
     <hr>
+    </section>
     
     <!-- SECTION 4 -->
-    <h2 id="section4">Output</h2>
+    <section id="section4">
+    <h2>Output</h2>
     <p>The output is a list of ATL objects, with one object per outlier.</p>
     <p>Each object contains six key&#8211;value pairs:
     <table>
@@ -132,9 +139,11 @@
     </table>
     <p>When no outliers are detected, the function returns an empty list.</p>
     <hr>
+    </section>
 
     <!-- SECTION 5 -->
-    <h2 id="section5">Z-score calculation</h2>
+    <section id="section5">
+    <h2>Z-score calculation</h2>
     <p>For a given data point, let:
     <ul>
       <li><em>Z</em> be the Z-score,</li>
@@ -148,9 +157,11 @@
     <p>When <code>isSample?</code> = false (the default), the calculation is: </p>
     <blockquote><em>Z = (x - &#956) / &#963</em></blockquote>
     <hr>
+    </section>
 
     <!-- SECTION 6 -->
-    <h2 id="section6">Examples</h2>
+    <section id="section6">
+    <h2>Examples</h2>
     <p>Assume a project with this table data:</p>
     <table style="width: 50%;">
       <tr>
@@ -243,6 +254,8 @@
     <p>Now, just one outlier is reported:</p>
     <blockquote class="listObjects">( label = 'Feb', value = 30, type = 'low', zScore = -2.27, zThres = 2, mean = 301.67 )</blockquote>
     <hr>
+
+    <!-- SUBSECTION 6A (h3)-->
     <h3>Working with the output</h3>
     <p>The output is always a list, even when there is one outlier or none at all.</p>
     <p>To generate narrative text, you would typically run the list through a separate narrative script. For example:
@@ -263,7 +276,8 @@ len(results) == 0 ? noOutliersText : describeOrderOutliers(results)
     <p>Still using the example data, the printed output is:</p>
     <blockquote class="italic">Analysing monthly order counts, we found two outliers: a low outlier of 30 orders in Feb and a high outlier of 612 orders in Oct. The analysis used the Z-score method to find values more than two standard deviations from the mean (301.67). 
     </blockquote>
-    <hr>  
+    <hr>
+    </section> <!-- CLOSING TAG FOR SECTION 4 -->
   <footer>
   <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
   </footer>

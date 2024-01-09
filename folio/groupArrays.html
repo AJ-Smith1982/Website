@@ -9,7 +9,7 @@
 <body>
   <!-- TOPIC INDEX CONTAINER -->
   <div class="index-container">
-    <h3 class="index-heading">Index</h3>
+    <p class="index-heading">Contents</p>
     <ul>
       <li><a href="#section1">(Top)</a></li>
       <li><a href="#section2">Parameters</a></li>
@@ -22,16 +22,19 @@
   <div class="main-content">
     
     <!-- SECTION 1 -->
-    <h1 id="section1">groupArrays()</h1>
+    <section id="section1">
+    <h1>groupArrays()</h1>
     <p>This function groups arrays based on matching values at one or more index positions. The function not only groups data but also performs aggregation within each group, following the criteria you specify.</p>
     <p>The return value is a list of tuples, with each tuple containing both the grouping values and the corresponding aggregated value for a distinct group. The tuples are sorted in descending order based on the aggregated value.</p>
     <p>For example, the output for a Country-by-Sales analysis might be:</p>  
     <blockquote class="listObjects">( ('France', 74392.45), ('Canada', 47792.22), ('Japan', 38256.62) )</blockquote>
     <p>This function is useful when your dataset is structured as a two-dimensional array. The outcome demonstrates the effectiveness of the function in presenting organised and aggregated data, providing valuable insights.</p>
     <hr>
+    </section>
 
     <!-- SECTION 2 -->
-    <h2 id="section2">Parameters</h2>
+    <section id="section2">
+    <h2>Parameters</h2>
     <table style="width:100%">
       <thead>
         <tr>
@@ -80,14 +83,18 @@
       <li>You can group by multiple dimensions, but aggregation is limited to one measure.</li>
     </ul>
     <hr>
+    </section>
 
     <!-- SECTION 3 -->
-    <h2 id="section3">Syntax</h2>
+    <section id="section3">
+    <h2>Syntax</h2>
     <pre style="margin-bottom: 10px">[[groupArrays(outerArray, groupIdx, aggregateIdx, aggregateFunc)]]</pre>
     <hr>
+    </section>
 
     <!-- SECTION 4 -->
-    <h2 id="section4">Examples</h2>
+    <section id="section4">
+    <h2>Examples</h2>
     <p>Assume a project with this JSON data:</p>
     <pre style="padding-right: 30px;">{
   "dataArray": [  
@@ -107,9 +114,8 @@
 }</pre>
     <p>The outer array (<code>dataArray</code>) comprises 12 subarrays, each with five values. These values are accessible through zero-based indexing, where <b>ID</b> = Index 0, <b>City</b> = Index 1, <b>Type</b> = Index 2, <b>Sales</b> = Index 3, and <b>Profit</b> = Index 4.</p>
     <hr> 
-    </section>
     
-    <!--SECTION 4A (h3)-->
+    <!-- SUBSECTION 4A (h3)-->
     <h3>Example 1 — Single grouping index</h3>
     <p>To identify the top <b>City</b> for total <b>Profit</b>, the function call is:</p>
     <pre>[[groupArrays(WholeJSON.dataArray, 1, 4, sum())]]</pre>
@@ -133,7 +139,7 @@ joinStrings('The top city is ', topCity, ', with a total Profit value of ', topP
     <blockquote class="italic">The top city is Atlanta, with a total Profit value of $138K.</blockquote>
     <hr>
   
-    <!-- SECTION 4B (h3)-->
+    <!-- SUBSECTION 4B (h3)-->
     <h3>Example 2 — Multiple grouping indexes</h3>
     <p>To identify the best <b>City</b> + <b>Type</b> combination for average <b>Sales</b>, you must specify two grouping indexes.</p>
     <pre>[[groupArrays(WholeJSON.dataArray, (1, 2), 3, mean())]]</pre>
@@ -157,6 +163,7 @@ joinStrings(topCityTypeCombo, ' had the best average sales (', topAvgSales, ').'
     <p>The printed output is:</p>
     <blockquote class="italic">Drug stores in Houston had the best average sales ($680K).</blockquote>
     <hr>
+    </section> <!-- CLOSING TAG FOR SECTION 4 -->
   <footer>
   <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
   </footer>
