@@ -9,7 +9,7 @@
 <body>
   <!-- TOPIC INDEX CONTAINER -->
   <div class="index-container">
-    <h3 class="index-heading">Index</h3>
+    <p class="index-heading">Contents</p>
     <ul>
       <li><a href="#intro">(Top)</a></li>
       <li><a href="#section1">Zero-based indexing</a></li>
@@ -23,21 +23,26 @@
   <div class="main-content">
     
     <!-- INTRO -->
-    <h1 id="intro">How to slice lists and strings</h1>
+    <section id="intro">
+    <h1>How to slice lists and strings</h1>
     <p>In Articulate Text Language (ATL), you can reference a single element in a sequence by using bracket notation and specifying the positional index. For instance,  <code>myList[0]</code> references the <code>myList</code> value at Index 0.</p>
     <p>Slicing, a related concept, involves specifying two indexes — a start index and end index — to extract a specific portion of the sequence, such as the first three values in a list. While you can achieve this with functions such as <a href="https://docs.app.studio.arria.com/en/271305-sublist.html" target="_blank">sublist()</a> and <a href="https://docs.app.studio.arria.com/en/271305-sublist.html" target="_blank">substring()</a>, slicing offers greater versatility and enables you to write simpler ATL.</p>
     <hr>
+    </section>
 
     <!-- SECTION 1 -->
-    <h2 id="section1">Zero-based indexing</h2>
+    <section id="section1">
+    <h2>Zero-based indexing</h2>
     <p>Slicing uses zero-based indexing, meaning that the initial element in a sequence is assigned Index 0, not Index 1. Indexes can count forwards from the start or backwards from the end. This is illustrated below.</p>
     <img src="../img/zero-based-indexing.png" alt="Zero-based indexing" style="width:90%">
     <p>Each block represents a value in a numeric list. Each value — that is, each element in the sequence — has two indexes: a positive index and a negative index. Use this indexing system to define start and indexes for slices. </p>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 2 -->
-    <h2 id="section2">Syntax for slicing</h2>
+    <section id="section2">
+    <h2>Syntax for slicing</h2>
     <p>The basic syntax for slicing is:</p>
     <pre style="margin-bottom: 20px;">input[startIndex:endIndex]</pre>
     <table>
@@ -70,9 +75,11 @@
     </ul>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 3 -->
-    <h2 id="section3">List slicing</h2>
+    <section id="section3">
+    <h2>List slicing</h2>
     <p>Each list value — that is, each element in the sequence — has a positive index and a negative index. The values can be of any type (strings, lists, etc.), but here we'll use a list of numbers.</p>
     <img src="../img/list-slicing-1.png" alt="List slicing 1" style="width:82%">
     <p>The ATL <code>myList[1:4]</code> returns a slice comprising the second, third, and fourth values only, as shown in the pink area above. Remember, the end index is <b>exclusive</b>, so the fifth value (at Index 4) is excluded.</p>
@@ -81,8 +88,8 @@
     <img src="../img/list-slicing-2.png" alt="List slicing 2" style="width:100%">
     <hr>
 
-    <!-- SECTION 3A (h3) -->
-    <h3 id="section3a">List slicing examples</h3>
+    <!-- SUBSECTION 3A (h3) -->
+    <h3>List slicing examples</h3>
     <p>If <code>startIndex</code> is unspecified, the default is Index 0.</p>
     <table style="width: 100%;">
       <tr>
@@ -135,9 +142,11 @@ myList[-3: ]
     </div>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section> 
     
     <!-- SECTION 4 -->
-    <h2 id="section4">String slicing</h2>
+    <section id="section4">
+    <h2>String slicing</h2>
     <p>You can use the <a href="#section2">slicing syntax</a> to extract a substring from a larger string.</p>
     <p>When slicing a string, treat each character as an individual value. This includes blank spaces. For example, this image shows a breakdown of the string "23 June 1912" using zero-based indexing:</p>
     <img src="../img/string-slicing-1.png" alt="string slicing 1" style="width:100%">
@@ -201,6 +210,7 @@ myString[-9: ]
     </div>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
   <footer>
   <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
   </footer>

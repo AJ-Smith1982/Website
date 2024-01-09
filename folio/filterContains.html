@@ -9,12 +9,12 @@
 <body>
   <!-- TOPIC INDEX CONTAINER -->
   <div class="index-container">
-    <h3 class="index-heading">Index</h3>
+    <p class="index-heading">Contents</p>
     <ul>
       <li><a href="#intro">(Top)</a></li>
       <li><a href="#section1">Example data</a></li>
-      <li><a href="#section2">Applying a does-contain filter</a></li>
-      <li><a href="#section3">Applying a does-not-contain filter</a></li>
+      <li><a href="#section2">Inclusion filters</a></li>
+      <li><a href="#section3">Exclusion filters</a></li>
     </ul>
   </div>
 
@@ -22,13 +22,16 @@
   <div class="main-content">
     
     <!-- INTRO -->
-    <h1 id="intro">How to filter using contains()</h1>
-    <p>This topic shows how to use the <a href="https://docs.app.studio.arria.com/en/12080-contains.html" target="blank">contains()</a> function in filtering operations. It demonstrates how this function can enhance data filtering processes, providing methods for selecting or excluding specific datasets based on a range of criteria.</p> 
+    <section id="intro">
+    <h1>How to filter using contains()</h1>
+    <p>This topic shows how to use the <a href="https://docs.app.studio.arria.com/en/12080-contains.html" target="blank">contains()</a> function in filtering operations. It demonstrates how this function can enhance data filtering processes, providing methods for including or excluding specific datasets based on a range of criteria.</p> 
     <p>While the examples focus on using <a href="filterTable.html" target="blank">filterTable()</a> for table data, the methods are just as effective when applied to JSON data using the <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a> function. This highlights the flexibility of the methods.</p>
     <hr>
+    </section>
 
     <!-- SECTION 1 -->
-    <h2 id="section1">Example data</h2>
+    <section id="section1">
+    <h2>Example data</h2>
     <p>The examples below use a large dataset, not fully shown here. To understand better, download the dataset and start a new project. After uploading the data, paste the example code into a script and click <b>Preview</b> to see the results.</p>
     <button id="download-button">DOWNLOAD DATASET</button>
     <p>The complete dataset contains 96 rows. For reference, here are the first four:</p>
@@ -82,15 +85,15 @@
         <td>Q1</td>
         <td>2022</td>
         <td>57000</td>
-    </tr>
-  </table>
-  
- 
+      </tr>
+    </table>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 2 -->
-    <h2 id="section2">Applying a does-contain filter</h2>
+    <section id="section2">
+    <h2>Inclusion filters</h2>
     <p>Suppose you want to filter the table, retaining only the rows for April to June. One approach is to check the <b>Month</b> column value against three separate conditions: </p>
     <pre>[[filterTable(WholeTable, MonthColumn, m -> m == 'Apr' || m == 'May' || m == 'Jun')]]</pre>
     <p>However, a better method is to use the <code>contains()</code> function. Here's how it works:</p>
@@ -109,10 +112,12 @@ filterTable(WholeTable, MonthColumn, m -> contains(wantedMonths, m))
     </ul>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 3 -->
-    <h2 id="section3">Applying a does-not-contain filter</h2>
-    <p>To exclude data for specific months, such as April to July, and to retain data for the remaining months, you can employ a does-not-contain filter by prefixing a NOT operator ( <code>!</code> ) to <code>contains()</code>.</p>
+    <section id="section3">
+    <h2>Exclusion filters</h2>
+    <p>To exclude data for specific months, such as April to July, and to retain data for the remaining months, you can employ a exclusion filter by prefixing a NOT operator ( <code>!</code> ) to <code>contains()</code>.</p>
     <pre>[[
   
 excludedMonths = makeList('Apr', 'May', 'Jun');
@@ -124,6 +129,7 @@ filterTable(WholeTable, MonthColumn, m -> !contains(excludedMonths, m))
     <p>This method is more efficient as it targets a smaller group of months for exclusion (three) instead of specifying a larger group for inclusion (nine). Other benefits include simplified code maintenance and enhanced readability.</p>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
   <footer>
   <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
   </footer>

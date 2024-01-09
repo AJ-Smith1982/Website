@@ -9,7 +9,7 @@
 <body>
   <!-- TOPIC INDEX CONTAINER -->
   <div class="index-container">
-    <h3 class="index-heading">Index</h3>
+    <p class="index-heading">Contents</p>
     <ul>
       <li><a href="#intro">(Top)</a></li>
       <li><a href="#section1">Syntax for lambdas</a></li>
@@ -25,7 +25,8 @@
   <div class="main-content">
     
     <!-- INTRO -->
-    <h1 id="intro">How to write lambda functions</h1>
+    <section id="intro">
+    <h1>How to write lambda functions</h1>
     <p>Lambda functions are created ad hoc, are nameless, and require no formal declaration.</p>
     <p>In Articulate Text Language (ATL), functions like <a href=" https://docs.app.studio.arria.com/en/12120-map.html" target="blank">map()</a>,  <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a>, and <a href="https://docs.app.studio.arria.com/en/12125-sort.html" target="blank">sort()</a> can use lambdas as arguments. These typically process lists or similar structures, applying lambdas to either retrieve or transform data. For example:</p>
     <table style="width: 100%;">
@@ -52,9 +53,11 @@ map(myList, x -&gt; x + 1)
   </table>
     <p>Here, the <code>map()</code> function iterates through a numeric list (<code>myList</code>), applying a lambda (<code>x -> x + 1</code>) to each value. The effect is to increase each number by 1. The transformed values are returned in a new list.</p>
     <hr>
+    </section>
 
     <!-- SECTION 1 -->
-    <h2 id="section1">Syntax for lambdas</h2>
+    <section id="section1">
+    <h2>Syntax for lambdas</h2>
     <p>The basic syntax for lambda functions is:</p>
     <pre style="margin-bottom: 20px;">parameter -> functionBody</pre>
     <table>
@@ -100,9 +103,11 @@ map(myList, x -&gt; x + 1)
     </div>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 2 -->
-    <h2 id="section2">Named functions and lambdas</h2>
+    <section id="section2">
+    <h2>Named functions and lambdas</h2>
     <p>In ATL, lambda functions can use the language's <a href="https://docs.app.studio.arria.com/en/2581-atl-functions.html" target="blank">built-in functions</a>. The first example below uses arithmetic operators, while the second employs the built-in math functions <a href="https://docs.app.studio.arria.com/en/12077-sum.html" target="blank">sum()</a> and <a href="https://docs.app.studio.arria.com/en/12066-div.html" target="blank">div()</a>.</p>
     <table>
         <tr>
@@ -127,9 +132,11 @@ map(myList, x -&gt; x + 1)
     </div>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 3 -->
-    <h2 id="section3">Mapping with lambdas </h2>
+    <section  id="section3">
+    <h2>Mapping with lambdas </h2>
     <p>The <a href="https://docs.app.studio.arria.com/en/12120-map.html" target="blank">map()</a> function applies a lambda to each list value and returns the transformed results in a new list.
     <table style="width: 100%;">
         <tr>
@@ -174,9 +181,11 @@ map(myList, num -> currency(num, 'GBP'))
     </div>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 4 -->
-    <h2 id="section4">Filtering with lambdas</h2>
+    <section id="section4">
+    <h2>Filtering with lambdas</h2>
     <p>The <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a> function iterates through a list, selectively retaining values that return true for the lambda's filter criteria. It then outputs those values in a new list.</p> 
     <table style="width: 100%;">
         <tr>
@@ -222,10 +231,11 @@ filter(myList, name -> startsWith(name, 'L'))
     </div>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 5 -->
-    <h2 id="section5">Sorting with lambdas</h2>
-   
+    <section id="section5">
+    <h2>Sorting with lambdas</h2>
     <p>The <a href="https://docs.app.studio.arria.com/en/12125-sort.html" target="blank">sort()</a> function reorders the input list based on the lambda's sorting criteria, and outputs a new, sorted list.</p>
     <table style="width: 100%;">
         <tr>
@@ -271,9 +281,11 @@ sort(myList, (x,y) -> sign(y - x))
     </div>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
 
     <!-- SECTION 6 -->
-    <h2 id="section6">Conditionals and lambdas</h2>
+    <section id="section6">
+    <h2>Conditionals and lambdas</h2>
     <p>Here, the <code>map()</code> function iterates through a list, applying a <a href="https://docs.app.studio.arria.com/en/2565-conditionals.html" target="blank">conditional statement</a> to each value:</p>
     <table style="width: 100%;">
         <tr>
@@ -296,11 +308,10 @@ map(myList, x -> x &lt 10 ? round(x, 2) : round(x, 1))
         
         </tr>
     </table>
-    <p>
-        The lambda function <code>x -> x < 10 ? round(x, 2) : round(x, 1)</code> uses <a href="https://docs.app.studio.arria.com/en/2565-conditionals.html" target="blank">ternary syntax</a>  to apply a conditional statement: it checks if <code>x</code> is less than 10. If so, <code>x</code> is rounded to two decimal places; otherwise, it's rounded to one.
-   
+    <p>The lambda function <code>x -> x < 10 ? round(x, 2) : round(x, 1)</code> uses <a href="https://docs.app.studio.arria.com/en/2565-conditionals.html" target="blank">ternary syntax</a>  to apply a conditional statement: it checks if <code>x</code> is less than 10. If so, <code>x</code> is rounded to two decimal places; otherwise, it's rounded to one.</p>
     <p class="top"><a href="#intro">Top</a></p>
     <hr>
+    </section>
   <footer>
   <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
   </footer>
