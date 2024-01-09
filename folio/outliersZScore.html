@@ -26,7 +26,7 @@
     <!-- SECTION 1 -->
     <h1 id="section1">outliersZScore()</h1>
     <p>This function detects statistical outliers using the Z-score method.</p>
-    <p>This method analyses a series of numbers by calculating a Z-score for each data point, measuring how many standard deviations each point is from the data's mean. The equation is explained in <a href="#section4a">Z-score calculation</a>.</p>
+    <p>This method analyses a series of numbers by calculating a Z-score for each data point, measuring how many standard deviations each point is from the data's mean. The equation is explained in <a href="#section5">Z-score calculation</a>.</p>
     <p>It then evaluates each Z-score against a user-defined threshold. Data points with absolute Z-scores exceeding the threshold are flagged as outliers. Outliers can be high or low — that is, above or below the mean.</p>
     <p>The return value is a list of ATL objects — see <a href="#section4">Output</a> for details.</p>
     <hr>
@@ -54,7 +54,7 @@
         <tr>
           <td><code>labelCol</code></td>
           <td><em>column</em></td>
-          <td>A column of values for labeling the data points.</td>
+          <td>A column of values for labelling the data points.</td>
           <td>required</td>
           <td>none</td>
         </tr>
@@ -87,7 +87,7 @@
     <ul>
       <li>The function removes nulls from <code>dataCol</code> before calculating.</li>
       <li>Increasing <code>zThreshold</code> makes the outlier detection less sensitive. </li>
-      <li>The <code>isSample?</code> value affects the <a href="#section4a">Z-score calculation</a>. </li>
+      <li>The <code>isSample?</code> value affects the <a href="#section5">Z-score calculation</a>. </li>
     </ul>
     <hr>
     
@@ -237,7 +237,7 @@
     <p>The output is a list containing these objects:</p>
     <blockquote class="listObjects">( label = 'Feb', value = 30, type = 'low', zScore = -2.27, zThres = 2, mean = 301.67 )</blockquote>
     <blockquote class="listObjects">( label = 'Oct', value = 612, type = 'high', zScore = 2.59, zThres = 2, mean = 301.67 )</blockquote>
-    <p>The objects contain important outlier information, including the value, label, type (high or low), and Z-score. It's worth noting that the threshold and dataset mean values are also included, but these are the same for each outlier.</p>
+    <p>The objects contain important outlier information, including the value, label, type, and Z-score. It's worth noting that the threshold and dataset mean values are also included, but these are the same for each outlier.</p>
     <p>The fifth parameter allows filtering by type.</p>
     <pre>[[outliersZScore(OrdersColumn, MonthColumn, 2, false, 'lowOnly')]]</pre>
     <p>Now, just one outlier is reported:</p>
