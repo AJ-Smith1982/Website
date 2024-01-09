@@ -91,7 +91,7 @@
 
     <!-- SECTION 2 -->
     <h2 id="section2">Applying a does-contain filter</h2>
-    <p>Suppose you want to filter the table, retaining only the rows for April to June. One approach is to use the OR logical operator ( <code>||</code> ) and check the <b>Month</b> column value against three separate conditions: </p>
+    <p>Suppose you want to filter the table, retaining only the rows for April to June. One approach is to check the <b>Month</b> column value against three separate conditions: </p>
     <pre>[[filterTable(WholeTable, MonthColumn, m -> m == 'Apr' || m == 'May' || m == 'Jun')]]</pre>
     <p>However, a better method is to use the <code>contains()</code> function. Here's how it works:</p>
     <pre>[[
