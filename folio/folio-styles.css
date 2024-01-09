@@ -3,6 +3,7 @@
     margin-left: 250px; /* provides space for the index container */
     margin-right: 250px;
     padding: 20px;
+    padding-bottom: 0px;
 }
 
 /* TOPIC INDEX CONTAINER */
