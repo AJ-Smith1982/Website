@@ -1,9 +1,8 @@
 /* MAIN CONTENT CONTAINER */
 .main-content {
-    margin-left: 250px; /* provides space for the index container */
+    margin-left: 250px;
     margin-right: 250px;
-    padding: 20px;
-    padding-bottom: 0px;
+    padding: 10px 20px 0px 20px /* top, right, bottom, left */
 }
 
 /* TOPIC INDEX CONTAINER */
@@ -11,9 +10,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 205px;
+    width: 220px;
     height: 100%;
-    padding: 20px 0px 5px 35px; /* Top, Right, Bottom, Left */;
+    padding: 20px 0px 0px 40px; /* top, right, bottom, left */
     box-sizing: border-box;
 }
 
