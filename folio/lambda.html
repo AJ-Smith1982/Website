@@ -92,7 +92,7 @@ map(myList, x -&gt; x + 1)
         </tr>
         <tr>
             <td><pre>(x, y, z) -> (x + y) / z</pre></td>
-            <td>This function has three parameters — <code>x</code>, <code>y</code> and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, and then divides the result by <code>z</code>.</td>
+            <td>This function has three parameters — <code>x</code>, <code>y</code>, and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, then divides the result by <code>z</code>.</td>
         </tr>
     </table>
     <div class="admonition-tip">
@@ -116,11 +116,11 @@ map(myList, x -&gt; x + 1)
         </tr>
         <tr>
             <td><pre>(x, y, z) -> (x + y) / z</pre></td>
-            <td>This function has three parameters — <code>x</code>, <code>y</code> and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, and then divides the result by <code>z</code>.</td>
+            <td>This function has three parameters — <code>x</code>, <code>y</code>, and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, then divides the result by <code>z</code>.</td>
         </tr>
         <tr>
             <td><pre>(x, y, z) -> div(sum(x, y), z)</pre></td>
-            <td>This function has three parameters — <code>x</code>, <code>y</code> and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, and then divides the result by <code>z</code>.</td>
+            <td>This function has three parameters — <code>x</code>, <code>y</code>, and <code>z</code>. It first calculates the sum of <code>x</code> and <code>y</code>, then divides the result by <code>z</code>.</td>
         </tr>
     </table>
     <p>In a lambda, you can nest built-in functions using the standard syntax, as demonstrated in the second example above. Here, the <code>sum()</code> function call — <code>sum(x, y)</code>— is used as the first argument in the <code>div()</code> function.</p>
@@ -176,7 +176,7 @@ map(myList, num -> currency(num, 'GBP'))
     <div class="admonition-tip">
         <div class="admonition-tip-title">TIP</div>
         <div class="admonition-content">
-            <p>The <code>map()</code> function can transform various data structures, including arrays of objects, into a more streamlined list of values. For detailed guidance and examples, refer to the <a href="https://docs.app.studio.arria.com/en/12120-map.html" target="blank">map()</a> topic.</p>
+            <p>The <code>map()</code> function, using lambdas, can retrieve data by transforming complex structures like arrays of objects into simpler value lists. Refer to the <a href="https://docs.app.studio.arria.com/en/12120-map.html" target="blank">map()</a> topic for guidance.</p>
         </div>
     </div>
     <p class="top"><a href="#intro">Top</a></p>
@@ -225,7 +225,7 @@ filter(myList, name -> startsWith(name, 'L'))
     <div class="admonition-tip">
         <div class="admonition-tip-title">TIP</div>
         <div class="admonition-content">
-            <p>You can also use <code>filter()</code> to filter JSON arrays — see <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a> for examples.</p>
+            <p>You can also use <code>filter()</code> on JSON arrays — see <a href="https://docs.app.studio.arria.com/en/12113-filter.html" target="blank">filter()</a> for examples.</p>
             <p>For table filtering, use <a href= "filterTable.html" target="blank">filterTable()</a>, which also accepts lambdas as arguments.</p>
         </div>
     </div>
