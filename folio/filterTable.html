@@ -299,8 +299,8 @@
       </tbody>
     </table>
     <p>The Boolean function can use other ATL functions (in-built or user-defined) to define the filter conditions.</p>
-    <p>To retain rows where <b>Sales</b> exceeds 350,000 AND <b>Sales</b> exceeds <b>Target</b> by more than 15%:</p>
-    <pre>[[filterTable(WholeTable, (SalesColumn,TargetColumn), (s,t) -> s > 350000 && pctChange(s,t) > 15)]]</pre>
+    <p>To retain rows where <b>Sales</b> exceeds <b>Target</b> by more than 15%:</p>
+    <pre>[[filterTable(WholeTable, (SalesColumn,TargetColumn), (s,t) -> percentageChange(s,t) > 15)]]</pre>
     <p>The output table region is:</p>
     <table style="width:75%">
       <thead>
@@ -345,11 +345,11 @@ sumQ2Sales = totalVal(columnsInRegion(Q2Data, SalesColumn))
 
 sumQ2Target = totalVal(columnsInRegion(Q2Data, TargetColumn))
 
-perfValue = pctChange(sumQ2Sales, sumQ2Target)
+perfValue = percentageChange(sumQ2Sales, sumQ2Target)
 
-position = perfValue >= 0 ? 'above' : 'below'
+perfPosition = perfValue >= 0 ? 'above' : 'below'
 
-joinStrings('Q2 sales are ',  abs(perfValue), '% ', position, ' target.') 
+joinStrings('Q2 sales are ',  abs(perfValue), '% ', perfPosition, ' target.') 
             
 ]]</pre>
     <p>The printed output is:</p>
