@@ -117,7 +117,7 @@ filterTable(WholeTable, MonthColumn, m -> contains(wantedMonths, m))
     <!-- SECTION 3 -->
     <section id="section3">
     <h2>Exclusion filters</h2>
-    <p>To exclude data for specific months, such as April to July, and to retain data for the remaining months, you can employ a exclusion filter by prefixing a NOT operator ( <code>!</code> ) to <code>contains()</code>.</p>
+    <p>To filter out data for specific months, such as April to June, while keeping data for all other months, you can use an exclusion filter. This is done by adding a NOT operator ( <code>!</code> ) before the <code>contains()</code> function.</p>
     <pre>[[
   
 excludedMonths = makeList('Apr', 'May', 'Jun');
