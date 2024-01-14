@@ -43,8 +43,8 @@ yearPlaceholder.textContent = currentYear;
 document.getElementById('download-button').addEventListener('click', function() {
     
     const link = document.createElement('a');
-    link.href = '../misc/example-data.csv'; 
-    link.download = 'download.csv';
+    link.href = '../misc/example_dataset_filtering.xlsx'; 
+    link.download = 'example_dataset_filtering.xlsx';
 
     document.body.appendChild(link); /* Adds link to DOM */
     link.click(); /* Triggers download */
