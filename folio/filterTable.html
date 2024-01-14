@@ -26,7 +26,7 @@
     <h1>filterTable()</h1>
     <p>This function filters a table region, using the criteria you specify.</p>
     <p>The function takes three arguments: the first defines the table region to filter, the second specifies which columns to use, and the third employs a Boolean function to define the filter conditions.</p>
-    <p>The output is a table region containing only rows for which the Boolean function returns true.</p>
+    <p>The output table region retains rows for which the Boolean function returns true.</p>
     <hr>
     </section>
 
@@ -171,7 +171,7 @@
     <div class="admonition-key">
       <div class="admonition-key-title">KEY</div>
       <div class="admonition-content">
-          <p>The first column (<b>Code</b>) must have unique values, so filtering by this column is not possible.</p>
+          <p>Since the first column (<b>Code</b>) must contain unique values, it cannot be used for filtering.</p>
       </div>
     </div>
     <hr>
@@ -256,7 +256,7 @@
 
     <!-- SUBSECTION 4B (h3) -->
     <h3>Multiple-column filters</h3>
-    <p>List the column variables and ensure the number of columns matches the number of parameters in the Boolean function.</p>
+    <p>To filter using multiple columns, give a list of column variables as the second argument. Also, ensure that the number of column variables matches the number of corresponding parameters in the Boolean function.</p>
     <p>To retain rows with a <b>Qtr</b> value equal to 'Q2' AND a <b>Sales</b> value greater than 300,000:</p>
     <pre>[[filterTable(WholeTable, (QtrColumn,SalesColumn), (q,s) -> q == 'Q2' && s > 300000)]]</pre>
     <p>The output table region is:</p>
