@@ -30,6 +30,39 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+/* HIGHLIGHTING NAV LINKS (SCROLLY STUFF) */
+
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", navHighlight);
+
+function navHighlight() {
+
+  // Get current scroll position
+  let scrollY = window.scrollY;
+
+  // Now loop through sections to get height, top and ID values for each
+  sections.forEach(current => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 50;
+    const sectionId = current.getAttribute("id");
+  
+    /*
+    If our current scroll position enters the space where current section 
+    on screen is, add .active class to corresponding navigation link, else remove it
+    */
+    
+    if (
+      scrollY > sectionTop &&
+      scrollY <= sectionTop + sectionHeight
+    ){
+      document.querySelector(".index-container a[href*=" + sectionId + "]").classList.add("active");
+    } else {
+      document.querySelector(".index-container a[href*=" + sectionId + "]").classList.remove("active");
+    }
+  });
+}
+
 
 /* FOR UPDATING CURRENT YEAR (FOOTER) */
 
