@@ -37,6 +37,11 @@
     line-height: 1.4; 
 }
 
+.index-container .active {
+    font-weight: bold; 
+    color: #555;
+  }
+
 /* RESPONSIVE DESIGN */
 @media screen and (max-width: 768px) {
     .index-container {
