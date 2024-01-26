@@ -224,8 +224,7 @@ nav ul li.active a {
 
 .contact-container h2 {
     font-size: 28px;
-    color: steelblue; 
-    margin-bottom: 0px;
+    color: steelblue;
 }
 
 .contact-item {
@@ -261,68 +260,6 @@ nav ul li.active a {
 
     .contact-item {
         width: 100%; 
-    }
-}
-
-
-/* STYLES FOR GITHUB TAB (github.html) */
-
-.github-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px;
-}
-
-.github-summary {
-    width: 67%;
-}
-
-.github-summary p {
-    font-size: 20px;
-    line-height: 1.5; 
-}
-
-.github-summary h2 {
-    font-size: 28px;
-    color: steelblue;
-    margin-bottom: 0px; 
-}
-
-.github-link {
-    width: 33%;
-    padding-top: 15px;
-    background-color: white /* for experimentation */
-}
-
-.github-link p {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.github-link img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto; 
-    width: auto;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-    .github-container {
-        flex-direction: column;
-        align-items: center; 
-    }
-
-    .github-summary, .github-link {
-        width: 100%; 
-    }
-
-    .github-link img {
-        width: 200px; 
-        max-width: 100%; 
     }
 }
 
