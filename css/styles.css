@@ -69,6 +69,19 @@ nav ul li.active a {
 }
 
 
+/* STYLES FOR ALL THREE TABS */
+
+.container h2 {
+    font-size: 28px;
+    color: steelblue;
+    margin-bottom: 0px; 
+}
+
+.container h3 {
+    font-size: 22px;
+}
+
+
 /* STYLES FOR HOME SECTION */
 
 .home-container {
@@ -87,17 +100,7 @@ nav ul li.active a {
     margin-right: 10px; 
 }
 
-.home-summary h2 {
-    font-size: 28px;
-    color: steelblue;
-    margin-bottom: 0px; 
-}
-
-.home-summary a {
-    color: steelblue;
-    font-weight: 550;
-    text-decoration: none;
-}
+.home-summary a,
 .home-summary a:visited {
     color: steelblue;
     font-weight: 550;
@@ -107,7 +110,8 @@ nav ul li.active a {
 .home-image {
     width: 35%;
     margin-top: 15px;
-    min-width: 400px; /* minimum size the image shrinks to */
+    min-width: 375px; /* minimum size the image shrinks to */
+    max-width: 450px;
 }
 
 .home-image img {
@@ -116,7 +120,7 @@ nav ul li.active a {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 768px) { /* adjust the breakpoint as needed */
+@media (max-width: 1000px) { /* adjust the breakpoint as needed */
     .home-container {
         flex-direction: column;
         align-items: flex-start; /* aligns items to the left */
@@ -140,12 +144,6 @@ nav ul li.active a {
     gap: 20px;
 }
 
-.portfolio-title h2 {
-    font-size: 28px;
-    color: steelblue; 
-    margin-bottom: 0px; 
-}
-
 .portfolio-container p,
 .portfolio-container ul, 
 .portfolio-container ul li {
@@ -153,15 +151,12 @@ nav ul li.active a {
     line-height: 1.5;
 }
 
-.portfolio-container h3 {
-    font-size: 22px;
-}
-
 .portfolio-container a {
     color: steelblue;
     font-weight: 400;
     text-decoration: none;
 }
+
 .portfolio-container a:visited {
     color: steelblue;
     font-weight: 400;
@@ -216,7 +211,6 @@ nav ul li.active a {
         width: 100%;
     }
 }
-
 
 /* STYLES FOR CONTACT TAB (contact.html) */
 
