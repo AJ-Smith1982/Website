@@ -191,11 +191,12 @@ nav ul li.active a {
 }
 
 .list-box ul li {
-    padding-left: 0px;  
+    padding-left: 10px; 
+    text-indent:  -5px; 
 }
 
 .list-box ul {
-    padding-left: 30px; 
+    padding-left: 25px; 
     margin-bottom: 0px;
 }
 
