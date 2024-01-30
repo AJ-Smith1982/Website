@@ -82,7 +82,7 @@ nav ul li.active a {
 }
 
 
-/* STYLES FOR HOME SECTION */
+/* STYLES FOR HOME TAB (index.html) */
 
 .home-container {
     display: flex;
@@ -135,7 +135,8 @@ nav ul li.active a {
     }
 }
 
-/* STYLES FOR PORTFOLIO PAGE (portfolio.html) */
+
+/* STYLES FOR PORTFOLIO TAB */
 
 .portfolio-container {
     display: grid;
@@ -213,7 +214,33 @@ nav ul li.active a {
     }
 }
 
-/* STYLES FOR CONTACT TAB (contact.html) */
+
+/* STYLES FOR TESTIMONIALS TAB */
+
+.testimonials-container p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-top: 0px;
+    margin-left: 25px;
+}
+.testimonials-container blockquote {
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 10px 10px 10px 25px; /* top, right, bottom, left */
+    background-color: #FFFFFF;
+    border-left: 5px solid #CCCCCC;
+    margin: 20px 0 10px 0; /* top, right, bottom, left */
+}
+
+.testimonials-container a,
+.testimonials-container a:visited {
+    color: steelblue;
+    font-weight: 550;
+    text-decoration: none;
+}
+
+
+/* STYLES FOR CONTACT TAB */
 
 .contact-container p { 
     font-size: 20px;
@@ -260,6 +287,7 @@ nav ul li.active a {
         width: 100%; 
     }
 }
+
 
 /* STYLING FOR FOOTERS */
 
