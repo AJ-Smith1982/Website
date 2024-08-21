@@ -1,104 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to slice lists and strings</title>
-  <link rel="stylesheet" href="folio-styles.css"> <!-- LINK TO CSS FILE -->
-</head>
-<body>
-  <!-- TOPIC INDEX CONTAINER -->
-  <div class="index-container">
-    <p class="index-heading">Contents</p>
-    <ul>
-      <li><a href="#intro">(Top)</a></li>
-      <li><a href="#section1">Zero-based indexing</a></li>
-      <li><a href="#section2">Syntax for slicing</a></li>
-      <li><a href="#section3">List slicing</a></li>
-      <li><a href="#section4">String slicing</a></li>
-    </ul>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to slice lists and strings</title>
+    <link rel="stylesheet" href="folio-styles.css" />
+    <!-- LINK TO CSS FILE -->
+  </head>
+  <body>
+    <!-- TOPIC INDEX CONTAINER -->
+    <div class="index-container">
+      <p class="index-heading">Contents</p>
+      <ul>
+        <li><a href="#intro">(Top)</a></li>
+        <li><a href="#section1">Zero-based indexing</a></li>
+        <li><a href="#section2">Syntax for slicing</a></li>
+        <li><a href="#section3">List slicing</a></li>
+        <li><a href="#section4">String slicing</a></li>
+      </ul>
+    </div>
 
-  <!-- MAIN CONTENT CONTAINER -->
-  <div class="main-content">
-    
-    <!-- INTRO -->
-    <section id="intro">
-    <h1>How to slice lists and strings</h1>
-    <p>In Articulate Text Language (ATL), you can reference a single element in a sequence by using bracket notation and specifying the positional index. For instance,  <code>myList[0]</code> references the <code>myList</code> value at Index 0.</p>
-    <p>Slicing, a related concept, involves specifying two indexes — a start index and end index — to extract a specific portion of the sequence, such as the first three values in a list. While you can achieve this with functions such as <a href="https://docs.app.studio.arria.com/en/271305-sublist.html" target="_blank">sublist()</a> and <a href="https://docs.app.studio.arria.com/en/271305-sublist.html" target="_blank">substring()</a>, slicing offers greater versatility and enables you to write simpler ATL.</p>
-    <hr>
-    </section>
+    <!-- MAIN CONTENT CONTAINER -->
+    <div class="main-content">
+      <!-- INTRO -->
+      <section id="intro">
+        <h1>How to slice lists and strings</h1>
+        <p>
+          In Articulate Text Language (ATL), you can reference a single element
+          in a sequence by using bracket notation and specifying the positional
+          index. For instance, <code>myList[0]</code> references the
+          <code>myList</code> value at Index 0.
+        </p>
+        <p>
+          Slicing, a related concept, involves specifying two indexes — a start
+          index and end index — to extract a specific portion of the sequence,
+          such as the first three values in a list. While you can achieve this
+          with functions such as
+          <a
+            href="https://docs.app.studio.arria.com/en/271305-sublist.html"
+            target="_blank"
+            >sublist()</a
+          >
+          and
+          <a
+            href="https://docs.app.studio.arria.com/en/271305-sublist.html"
+            target="_blank"
+            >substring()</a
+          >, slicing offers greater versatility and enables you to write simpler
+          ATL.
+        </p>
+        <hr />
+      </section>
 
-    <!-- SECTION 1 -->
-    <section id="section1">
-    <h2>Zero-based indexing</h2>
-    <p>Slicing uses zero-based indexing, meaning that the initial element in a sequence is assigned Index 0, not Index 1. Indexes can count forwards from the start or backwards from the end. This is illustrated below.</p>
-    <img src="../img/zero-based-indexing.png" alt="Zero-based indexing" style="width:90%">
-    <p>Each block represents a value in a numeric list. Each value — that is, each element in the sequence — has two indexes: a positive index and a negative index. Use this indexing system to define start and indexes for slices. </p>
-    <p class="top"><a href="#intro">Top</a></p>
-    <hr>
-    </section>
+      <!-- SECTION 1 -->
+      <section id="section1">
+        <h2>Zero-based indexing</h2>
+        <p>
+          Slicing uses zero-based indexing, meaning that the initial element in
+          a sequence is assigned Index 0, not Index 1. Indexes can count
+          forwards from the start or backwards from the end. This is illustrated
+          below.
+        </p>
+        <img
+          src="../img/zero-based-indexing.png"
+          alt="Zero-based indexing"
+          style="width: 90%"
+        />
+        <p>
+          Each block represents a value in a numeric list. Each value — that is,
+          each element in the sequence — has two indexes: a positive index and a
+          negative index. Use this indexing system to define start and indexes
+          for slices.
+        </p>
+        <p class="top"><a href="#intro">Top</a></p>
+        <hr />
+      </section>
 
-    <!-- SECTION 2 -->
-    <section id="section2">
-    <h2>Syntax for slicing</h2>
-    <p>The basic syntax for slicing is:</p>
-    <pre style="margin-bottom: 20px;">input[startIndex:endIndex]</pre>
-    <table>
-      <tr>
-          <th>Element</th>
-          <th>Description</th>
-      </tr>
-      <tr>
-          <td style="padding-right: 30px;"><code>input</code></td>
-          <td style="padding-right: 30px;">The list or string to slice.</td>
-      </tr>
-      <tr>
-          <td style="padding-right: 30px;"><code>startIndex</code></td>
-          <td style="padding-right: 30px;">The inclusive start index for the slice.</td>
-      </tr>
-      <tr>
-          <td style="padding-right: 30px;"><code>:</code></td>
-          <td style="padding-right: 30px;">The slicing operator.</td>
-      </tr>
-      <tr>
-          <td style="padding-right: 30px;"><code>endIndex</code></td>
-          <td style="padding-right: 30px;">The exclusive end index for the slice.</td>
-      </tr>
-  </table>
-  
-    <ul>
-      <li>You must include the square brackets and slicing operator.</li>
-      <li>If <code>startIndex</code> is unspecified, the default is Index 0.</li>
-      <li>If <code>endIndex</code> is unspecified, the slice includes all values from <code>startIndex</code> onward.</li>
-    </ul>
-    <p class="top"><a href="#intro">Top</a></p>
-    <hr>
-    </section>
+      <!-- SECTION 2 -->
+      <section id="section2">
+        <h2>Syntax for slicing</h2>
+        <p>The basic syntax for slicing is:</p>
+        <pre style="margin-bottom: 20px">input[startIndex:endIndex]</pre>
+        <table>
+          <tr>
+            <th>Element</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td style="padding-right: 30px"><code>input</code></td>
+            <td style="padding-right: 30px">The list or string to slice.</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 30px"><code>startIndex</code></td>
+            <td style="padding-right: 30px">
+              The inclusive start index for the slice.
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-right: 30px"><code>:</code></td>
+            <td style="padding-right: 30px">The slicing operator.</td>
+          </tr>
+          <tr>
+            <td style="padding-right: 30px"><code>endIndex</code></td>
+            <td style="padding-right: 30px">
+              The exclusive end index for the slice.
+            </td>
+          </tr>
+        </table>
 
-    <!-- SECTION 3 -->
-    <section id="section3">
-    <h2>List slicing</h2>
-    <p>Each list value — that is, each element in the sequence — has a positive index and a negative index. The values can be of any type (strings, lists, etc.), but here we'll use a list of numbers.</p>
-    <img src="../img/list-slicing-1.png" alt="List slicing 1" style="width:82%">
-    <p>The ATL <code>myList[1:4]</code> returns a slice comprising the second, third, and fourth values only, as shown in the pink area above. Remember, the end index is <b>exclusive</b>, so the fifth value (at Index 4) is excluded.</p>
-    <p>Also, remember that every position in the list has two indexes: one positive and one negative. Therefore, <code>myList[-5:-2]</code> returns the same slice as <code>myList[1:4]</code>. You can mix positive and negative indexes.</p>
-    <p>You can specify index values that go beyond either end of the list. Parts extending beyond the actual list are ignored. For example, <code>myList[3:7]</code> returns a slice comprising the values at Indexes 3, 4, and 5.</p>
-    <img src="../img/list-slicing-2.png" alt="List slicing 2" style="width:100%">
-    <hr>
+        <ul>
+          <li>You must include the square brackets and slicing operator.</li>
+          <li>
+            If <code>startIndex</code> is unspecified, the default is Index 0.
+          </li>
+          <li>
+            If <code>endIndex</code> is unspecified, the slice includes all
+            values from <code>startIndex</code> onward.
+          </li>
+        </ul>
+        <p class="top"><a href="#intro">Top</a></p>
+        <hr />
+      </section>
 
-    <!-- SUBSECTION 3A (h3) -->
-    <h3>List slicing examples</h3>
-    <p>If <code>startIndex</code> is unspecified, the default is Index 0.</p>
-    <table style="width: 100%;">
-      <tr>
-          <th>Example Code</th>
-          <th>Input List</th>
-          <th>Returned Slice</th>
-      </tr>
-      <tr>
-          <td>
+      <!-- SECTION 3 -->
+      <section id="section3">
+        <h2>List slicing</h2>
+        <p>
+          Each list value — that is, each element in the sequence — has a
+          positive index and a negative index. The values can be of any type
+          (strings, lists, etc.), but here we'll use a list of numbers.
+        </p>
+        <img
+          src="../img/list-slicing-1.png"
+          alt="List slicing 1"
+          style="width: 82%"
+        />
+        <p>
+          The ATL <code>myList[1:4]</code> returns a slice comprising the
+          second, third, and fourth values only, as shown in the pink area
+          above. Remember, the end index is <b>exclusive</b>, so the fifth value
+          (at Index 4) is excluded.
+        </p>
+        <p>
+          Also, remember that every position in the list has two indexes: one
+          positive and one negative. Therefore,
+          <code>myList[-5:-2]</code> returns the same slice as
+          <code>myList[1:4]</code>. You can mix positive and negative indexes.
+        </p>
+        <p>
+          You can specify index values that go beyond either end of the list.
+          Parts extending beyond the actual list are ignored. For example,
+          <code>myList[3:7]</code> returns a slice comprising the values at
+          Indexes 3, 4, and 5.
+        </p>
+        <img
+          src="../img/list-slicing-2.png"
+          alt="List slicing 2"
+          style="width: 100%"
+        />
+        <hr />
+
+        <!-- SUBSECTION 3A (h3) -->
+        <h3>List slicing examples</h3>
+        <p>
+          If <code>startIndex</code> is unspecified, the default is Index 0.
+        </p>
+        <table style="width: 100%">
+          <tr>
+            <th>Example Code</th>
+            <th>Input List</th>
+            <th>Returned Slice</th>
+          </tr>
+          <tr>
+            <td>
               <pre class="full-width-pre"><code>[[
 
 myList = makeList(10, 20, 30, 40, 50, 60)
@@ -106,21 +180,23 @@ myList = makeList(10, 20, 30, 40, 50, 60)
 myList[ :3]
 
 ]]</code></pre>
-          </td>
-          <td>(10, 20, 30, 40, 50, 60)</td>
-          <td>(10, 20, 30)</td>
-      
-      </tr>
-    </table>
-    <p>If <code>endIndex</code> is unspecified, the slice includes all values from <code>startIndex</code> onward.</p>
-    <table style="width: 100%;">
-      <tr>
-          <th>Example Code</th>
-          <th>Input List</th>
-          <th>Returned Slice</th>
-      </tr>
-      <tr>
-          <td>
+            </td>
+            <td>(10, 20, 30, 40, 50, 60)</td>
+            <td>(10, 20, 30)</td>
+          </tr>
+        </table>
+        <p>
+          If <code>endIndex</code> is unspecified, the slice includes all values
+          from <code>startIndex</code> onward.
+        </p>
+        <table style="width: 100%">
+          <tr>
+            <th>Example Code</th>
+            <th>Input List</th>
+            <th>Returned Slice</th>
+          </tr>
+          <tr>
+            <td>
               <pre class="full-width-pre"><code>[[
 
 myList = makeList(10, 20, 30, 40, 50, 60)
@@ -128,45 +204,79 @@ myList = makeList(10, 20, 30, 40, 50, 60)
 myList[-3: ]
 
 ]]</code></pre>
-          </td>
-          <td>(10, 20, 30, 40, 50, 60)</td>
-          <td>(40, 50, 60)</td>
-      
-      </tr>
-    </table>
-    <div class="admonition-tip">
-      <div class="admonition-tip-title">TIP</div>
-      <div class="admonition-content">
-          <p>As shown above, use <code>[ :N]</code> to get the first <code>N</code> values, and <code>[-N: ]</code> to get the last <code>N</code> values. </p>
-      </div>
-    </div>
-    <p class="top"><a href="#intro">Top</a></p>
-    <hr>
-    </section> 
-    
-    <!-- SECTION 4 -->
-    <section id="section4">
-    <h2>String slicing</h2>
-    <p>You can use the <a href="#section2">slicing syntax</a> to extract a substring from a larger string.</p>
-    <p>When slicing a string, treat each character as an individual value. This includes blank spaces. For example, this image shows a breakdown of the string "23 June 1912" using zero-based indexing:</p>
-    <img src="../img/string-slicing-1.png" alt="string slicing 1" style="width:100%">
-    <p>Each character — that is, each position in the sequence — has two indexes, one positive and one negative. Use this indexing system to define start and end indexes for your slice. For example:</p>
-    <img src="../img/string-slicing-2.png" alt="string-slicing-2" style="width:100%">
-    <p>The variable <code>myString</code> returns the whole string, whereas the ATL <code>myString[3:7]</code> returns the substring "June". Remember, the end index is <b>exclusive</b>, so the eighth character (at Index 7) is excluded.</p>
-    <p>Also, remember that every string character has two indexes, one positive and one negative. Therefore, <code>myString[-9:-5]</code> returns the same slice as <code>myString[3:7]</code>. You can mix positive and negative indexes.</p>
-    <hr>
+            </td>
+            <td>(10, 20, 30, 40, 50, 60)</td>
+            <td>(40, 50, 60)</td>
+          </tr>
+        </table>
+        <div class="admonition-tip">
+          <div class="admonition-tip-title">TIP</div>
+          <div class="admonition-content">
+            <p>
+              As shown above, use <code>[ :N]</code> to get the first
+              <code>N</code> values, and <code>[-N: ]</code> to get the last
+              <code>N</code> values.
+            </p>
+          </div>
+        </div>
+        <p class="top"><a href="#intro">Top</a></p>
+        <hr />
+      </section>
 
-    <!-- SECTION 4A (h3) -->
-    <h3 id="section4a">String slicing examples</h3>
-    <p>If <code>startIndex</code> is unspecified, the default is Index 0.</p>
-    <table style="width: 100%;">
-      <tr>
-          <th>Example Code</th>
-          <th>Input String</th>
-          <th>Returned Slice</th>
-      </tr>
-      <tr>
-          <td>
+      <!-- SECTION 4 -->
+      <section id="section4">
+        <h2>String slicing</h2>
+        <p>
+          You can use the <a href="#section2">slicing syntax</a> to extract a
+          substring from a larger string.
+        </p>
+        <p>
+          When slicing a string, treat each character as an individual value.
+          This includes blank spaces. For example, this image shows a breakdown
+          of the string "23 June 1912" using zero-based indexing:
+        </p>
+        <img
+          src="../img/string-slicing-1.png"
+          alt="string slicing 1"
+          style="width: 100%"
+        />
+        <p>
+          Each character — that is, each position in the sequence — has two
+          indexes, one positive and one negative. Use this indexing system to
+          define start and end indexes for your slice. For example:
+        </p>
+        <img
+          src="../img/string-slicing-2.png"
+          alt="string-slicing-2"
+          style="width: 100%"
+        />
+        <p>
+          The variable <code>myString</code> returns the whole string, whereas
+          the ATL <code>myString[3:7]</code> returns the substring "June".
+          Remember, the end index is <b>exclusive</b>, so the eighth character
+          (at Index 7) is excluded.
+        </p>
+        <p>
+          Also, remember that every string character has two indexes, one
+          positive and one negative. Therefore,
+          <code>myString[-9:-5]</code> returns the same slice as
+          <code>myString[3:7]</code>. You can mix positive and negative indexes.
+        </p>
+        <hr />
+
+        <!-- SECTION 4A (h3) -->
+        <h3 id="section4a">String slicing examples</h3>
+        <p>
+          If <code>startIndex</code> is unspecified, the default is Index 0.
+        </p>
+        <table style="width: 100%">
+          <tr>
+            <th>Example Code</th>
+            <th>Input String</th>
+            <th>Returned Slice</th>
+          </tr>
+          <tr>
+            <td>
               <pre class="full-width-pre"><code>[[
 
 myString = "23 June 1912"
@@ -174,48 +284,53 @@ myString = "23 June 1912"
 myString[ :7]
 
 ]]</code></pre>
-          </td>
-          <td>"23 June 1912"</td>
-          <td>"23 June"</td>
-      
-      </tr>
-    </table>
-    <p>If <code>endIndex</code> is unspecified, the slice includes all characters from <code>startIndex</code> onward.</p>
-    <table style="width: 100%;">
-      <tr>
-          <th>Example Code</th>
-          <th>Input String</th>
-          <th>Returned Slice</th>
-      </tr>
-      <tr>
-          <td>
+            </td>
+            <td>"23 June 1912"</td>
+            <td>"23 June"</td>
+          </tr>
+        </table>
+        <p>
+          If <code>endIndex</code> is unspecified, the slice includes all
+          characters from <code>startIndex</code> onward.
+        </p>
+        <table style="width: 100%">
+          <tr>
+            <th>Example Code</th>
+            <th>Input String</th>
+            <th>Returned Slice</th>
+          </tr>
+          <tr>
+            <td>
               <pre class="full-width-pre"><code>[[
 
-myString = = "23 June 1912"
+myString = "23 June 1912"
 
 myString[-9: ]
 
 ]]</code></pre>
-          </td>
-          <td>"23 June 1912"</td>
-          <td>"June 1912"</td>
-      
-      </tr>
-    </table>
-    <div class="admonition-tip">
-      <div class="admonition-tip-title">TIP</div>
-      <div class="admonition-content">
-          <p>As shown above, use <code>[ :N]</code> to get the first <code>N</code> characters, and <code>[-N: ]</code> to get the last <code>N</code> characters. </p>
-      </div>
+            </td>
+            <td>"23 June 1912"</td>
+            <td>"June 1912"</td>
+          </tr>
+        </table>
+        <div class="admonition-tip">
+          <div class="admonition-tip-title">TIP</div>
+          <div class="admonition-content">
+            <p>
+              As shown above, use <code>[ :N]</code> to get the first
+              <code>N</code> characters, and <code>[-N: ]</code> to get the last
+              <code>N</code> characters.
+            </p>
+          </div>
+        </div>
+        <p class="top"><a href="#intro">Top</a></p>
+        <hr />
+      </section>
+      <footer>
+        <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
+      </footer>
     </div>
-    <p class="top"><a href="#intro">Top</a></p>
-    <hr>
-    </section>
-  <footer>
-  <p>Copyright © <span id="currentYear"></span>, A.J. Smith</p>
-  </footer>
-  </div>
-  <!-- END OF MAIN CONTENT CONTAINER -->
-  <script src="../js/script.js"></script>
-</body>
+    <!-- END OF MAIN CONTENT CONTAINER -->
+    <script src="../js/script.js"></script>
+  </body>
 </html>
